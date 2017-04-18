@@ -1,8 +1,15 @@
-<?php
+<?php namespace Config;
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+class Autoload{
+    public static function run(){
+        spl_autoload_register(function($class){
+            $ruta = str_replace("\\", "/", $class) . ".php";
+            if(is_readable($ruta)){
+                include_once $ruta;
+            }else{
+                echo 'El archivo no existe';
+            }
+        });
+    }
+}
 

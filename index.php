@@ -1,22 +1,11 @@
 <?php
+    define('DS', DIRECTORY_SEPARATOR);
+    define('ROOT', realpath(dirname(__FILE__)).DS);
+    define('URL', "http://localhost/SCAI/");
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    require_once "Config/Autoload.php";
+    Config\Autoload::run();
+    require_once "Views/Template.php";
+    Config\Enrutador::run(new Config\Request());
 ?>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>SCAI</title>
-    </head>
-    <body>
-        <h1>BIENVENIDOS AL SISTEMA DE CONTROL DE ACTIVOS E INVENTARIO</h1> 
-        <h1>SCAI</h1>
-                
-    </body>
-</html>
 
