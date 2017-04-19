@@ -15,7 +15,7 @@
             <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/template/css/materialize.css"  media="screen,projection"/>
-            <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/template/css/extras.css"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/template/css/scaicss.css"  media="screen,projection"/>
 
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,7 +27,7 @@
                 <div class="container">
                   <a href="#" data-activates="slide-out" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons white-text">menu</i></a>
 
-                  <ul id="slide-out" class="side-nav fixed grey">
+                  <ul id="slide-out" class="side-nav fixed light-blue darken-1">
                     <li><div class="userView">
                       <div class="background">
                         <img src="http://placehold.it/300x170">
@@ -39,6 +39,7 @@
                     <li><a href="#!" class="white-text">PORTAFOLIO</a></li>
                     <li><a href="#!" class="white-text">TARJETAS DE PRESENTACIÓN</a></li>
                     <li><a href="#!" class="white-text">LOGOTIPOS</a></li>
+                    <li><div class="divider"></div></li>
                     <li><a href="#!" class="white-text">AFICHES</a></li>
                     <li><a href="#!" class="white-text">SITIOS WEB</a></li>
                     <li><a href="#!" class="white-text">CONTÁCTANOS</a></li>            
@@ -46,6 +47,10 @@
                   </ul>        
                 </div>
               </header>
+              
+              <main>
+                  
+              </main>
             
 <?php            
         }
