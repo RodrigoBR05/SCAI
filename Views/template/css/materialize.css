@@ -2862,8 +2862,8 @@ ul.staggered-list li {
 }
 
 .page-footer {
-  padding-top: 20px;
-  background-color: #ee6e73;
+  padding-top: 0px;
+  background-color: #bdbdbd;
 }
 
 .page-footer .footer-copyright {
@@ -7259,8 +7259,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav .userView .circle {
-  height: 64px;
-  width: 64px;
+  display:block;
+  margin:auto;
+  height: 125px;
+  width: 125px;
 }
 
 .side-nav .userView .name,

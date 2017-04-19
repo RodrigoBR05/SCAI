@@ -29,12 +29,7 @@
 
                   <ul id="slide-out" class="side-nav fixed light-blue darken-1">
                     <li><div class="userView">
-                      <div class="background">
-                        <img src="http://placehold.it/300x170">
-                      </div>
-                      <a href="#!user"><img class="circle" src="img/logo.png"></a>
-                      <a href="#!name"><span class="white-text name">BRODITEC</span></a>
-                      <a href="#!email"><span class="white-text email"><i class="material-icons left">email</i>broditec@gmail.com</span></a>
+                      <img class="circle" src="Views/template/img/logo.png">
                     </div></li>
                     <li><a href="#!" class="white-text">PORTAFOLIO</a></li>
                     <li><a href="#!" class="white-text">TARJETAS DE PRESENTACIÓN</a></li>
@@ -48,28 +43,18 @@
                 </div>
               </header>
               
-              <main>
-                  
-              </main>
+              
             
 <?php            
         }
         
         public function __destruct() {
  ?>
-        <footer class="page-footer">          
-            <div class="container">
-              <div class="row">
-                <div class="col s8 offset-s3 m6 offset-m3 l4 ">
-                  <p class="grey-text text-lighten-4"> © 2017 Copyright Broditec</p>                  
+        <footer class="page-footer">   
+            <div class="footer-copyright">
+                <div class="container center">
+                Copyright © 2017 Centro Diurno Paraíso
                 </div>
-                <div class="col s8 offset-s3 m6 offset-m3 l4">
-                  <p class="grey-text text-lighten-4"><i class="material-icons left">home</i>Guadalupe, Cartago</p>                  
-                </div>
-                <div class="col s8 offset-s3 m6 offset-m3 l4">
-                  <p class="grey-text text-lighten-4"><i class="material-icons left">phone</i>(506) 8437-3928</p>                  
-                </div>
-              </div>           
             </div>
         </footer>
         <!--Import jQuery before materialize.js-->
