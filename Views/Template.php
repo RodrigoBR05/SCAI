@@ -31,13 +31,55 @@
                     <li><div class="userView">
                       <img class="circle" src="Views/template/img/logo.png">
                     </div></li>
-                    <li><a href="#!" class="white-text">PORTAFOLIO</a></li>
-                    <li><a href="#!" class="white-text">TARJETAS DE PRESENTACIÓN</a></li>
-                    <li><a href="#!" class="white-text">LOGOTIPOS</a></li>
-                    <li><div class="divider"></div></li>
-                    <li><a href="#!" class="white-text">AFICHES</a></li>
-                    <li><a href="#!" class="white-text">SITIOS WEB</a></li>
-                    <li><a href="#!" class="white-text">CONTÁCTANOS</a></li>            
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">                          
+                          
+                          <li class="bold"><a class="collapsible-header  waves-effect waves-teal white-text"><i class="material-icons left white-text">supervisor_account</i>USUARIOS</a>
+                            <div class="collapsible-body light-blue darken-1">
+                              <ul>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar usuario</a></li>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de usuarios</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div class="divider"></div></li>
+                          
+                          <li class="bold"><a class="collapsible-header waves-effect waves-teal white-text"><i class="material-icons left white-text">home</i>DEPARTAMENTOS</a>
+                            <div class="collapsible-body light-blue darken-1">
+                              <ul>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar departamento</a></li>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de departamentos</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div class="divider"></div></li> 
+                          
+                          <li class="bold"><a class="collapsible-header  waves-effect waves-teal white-text"><i class="material-icons left white-text">work</i>ACTIVOS</a>
+                            <div class="collapsible-body light-blue darken-1">
+                              <ul>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar activo</a></li>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de activos</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div class="divider"></div></li>
+                          
+                          <li class="bold"><a class="collapsible-header  waves-effect waves-teal white-text"><i class="material-icons left white-text">shopping_cart</i>INVENTARIO COMEDOR</a>
+                            <div class="collapsible-body light-blue darken-1">
+                              <ul>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar producto</a></li>
+                                <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de productos</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><div class="divider"></div></li>
+                          
+                          <li class="bold"><a class="collapsible-header waves-effect waves-teal white-text"><i class="material-icons left white-text">power_settings_new</i>SALIR</a>
+                          </li>
+                          <li><div class="divider"></div></li>
+
+                        </ul>
+                      </li>
 
                   </ul>        
                 </div>
@@ -67,7 +109,6 @@
                 $(".button-collapse").sideNav({
                   menuWidth: 300
                 });
-
 
               });
             </script>
