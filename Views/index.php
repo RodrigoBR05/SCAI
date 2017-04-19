@@ -69,7 +69,7 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">loop</i></a>
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -86,7 +86,7 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">loop</i></a>
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -103,7 +103,7 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">loop</i></a>
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -120,7 +120,7 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">loop</i></a>
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -137,7 +137,7 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">loop</i></a>
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
