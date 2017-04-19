@@ -19,7 +19,7 @@ class Request{
             $this->argumento = $ruta;          
         }else{
             //Ruta inicial por defecto
-            $this->controlador = "login";
+            //$this->controlador = "login";
             $this->metodo="index";
 	}
     }
