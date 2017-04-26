@@ -4,8 +4,7 @@
     define('URL', "http://localhost/SCAI/");
 
     require_once "Config/Autoload.php";
-    Config\Autoload::run();
-    require_once "Views/Template.php";
+    Config\Autoload::run(); 
     Config\Enrutador::run(new Config\Request());
 ?>
 

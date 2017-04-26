@@ -1,18 +1,17 @@
 <?php namespace Models;
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 	
 class Conexion{
     private $datos = array(
-	"host" => "localhost",
-	"user" => "root",
-	"pass" => "",
-	"db" => "SCAIPROY"
+	"host" => "163.178.107.130",
+	"user" => "adm",
+	"pass" => "saucr.092",
+	"db" => "scai"
     );
+    
+    //Tipos de usuario
+    //Administrador general = 1
+    //Administrador de activos = 2
+    //Administrador de inventario = 3
 
     private $con;
 

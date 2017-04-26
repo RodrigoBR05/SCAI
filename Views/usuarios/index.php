@@ -1,4 +1,5 @@
 <?php
+    require_once "Views/Template.php";
 
 ?>
 
@@ -154,4 +155,6 @@
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
           </ul>
 </main>
+
+
 
