@@ -1,8 +1,5 @@
-<?php
-    require_once "Views/Template.php";
-
-?>
-
+<?php    include '../Head.php';?>
+<?php    include '../HeaderAdminGeneral.php';?>
 <header>
     <nav class="top-nav">
         <div class="container center">
@@ -10,7 +7,6 @@
         </div>
     </nav>
 </header>
-
 
 <main >
     <br>    
@@ -155,6 +151,7 @@
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
           </ul>
 </main>
+<?php    include '../Footer.php';?>
 
 
 

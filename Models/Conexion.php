@@ -18,6 +18,8 @@ class Conexion{
     public function __construct(){
 	// \ para que identifica la clase global mysqli cuando utilizamos namespace
 	$this->con = new \mysqli($this->datos['host'],$this->datos['user'], $this->datos['pass'],$this->datos['db']);
+        //Acentos
+        \mysqli_set_charset($this->con, "utf8");
     }
     
     public function consultaSimple($sql){
