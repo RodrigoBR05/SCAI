@@ -1,10 +1,18 @@
 <?php namespace Models;
 	
 class Conexion{
-    private $datos = array(
+    /*private $datos = array(
 	"host" => "163.178.107.130",
 	"user" => "adm",
 	"pass" => "saucr.092",
+	"db" => "scai"
+    );
+     * */
+     
+    private $datos = array(
+	"host" => "localhost",
+	"user" => "root",
+	"pass" => "",
 	"db" => "scai"
     );
     

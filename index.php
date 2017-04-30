@@ -2,14 +2,12 @@
     //Login administrador
     if(isset($_POST['usuario'],$_POST['password'])){
         require_once 'Controllers/AutenticacionController.php';
-        require_once 'Controllers/UsuariosController.php';
 
         $auten = new \Controllers\AutenticacionController();
-        $verificarUser=mysqli_fetch_array($auten->login($_POST['usuario'],$_POST['password']));
+        $verificarUser=$auten->login($_POST['usuario'],$_POST['password']);
         if ($verificarUser) {
             $_SESSION['admin']= $verificarUser;
-            $usuarios= new \Controllers\UsuariosController();
-            $usuarios->index();
+            $auten->index();
 	}
     }
 
