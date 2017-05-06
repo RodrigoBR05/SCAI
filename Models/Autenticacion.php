@@ -18,9 +18,14 @@ class Autenticacion{
     }
     
     public function login($usuario,$clave){
-        $sql = "SELECT * FROM usuario WHERE usuario = '{$usuario}' AND clave = '{$clave}'";
+        $sql = "SELECT * FROM usuario WHERE usuario = '{$usuario}'";
         $datos = $this->con->consultaRetorno($sql);
-        return $datos;
+        $row = mysqli_fetch_array($datos);
+        $claveUsuario = $row['clave'];
+        if(password_verify($clave, $claveUsuario)){
+            return $row;
+        }
+        return NULL;
     }       
 }
 ?>

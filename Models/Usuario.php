@@ -1,5 +1,7 @@
 <?php namespace Models;
 
+require_once 'Conexion.php';
+
 class Usuario{
     private $id_usuario;
     private $nombre;
@@ -28,17 +30,21 @@ class Usuario{
 	return $this->$atributo;
     }
     
-    public function ToList(){
+    public function toList(){
         $sql = "SELECT * FROM usuario";
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }
     
     public function create(){
-        $sql = "INSERT INTO usuario (nombre,apellidos,email,telefono,puesto,usuario,clave,tipo_usuario,id_tipo_usuario,
+        $fActual = date("Y/m/d");
+        $fModificacion = date("Y/m/d");
+        $encriptacionClave = password_hash($this->clave, PASSWORD_DEFAULT, [15]);
+        $sql = "INSERT INTO scai.usuario (nombre,apellidos,email,telefono,puesto,usuario,clave,tipo_usuario,id_tipo_usuario,
                 fecha_ingreso,fecha_modificacion)
                 VALUES ('{$this->nombre}', '{$this->apellidos}', '{$this->email}', '{$this->telefono}','{$this->puesto}',
-                    '{$this->usuario}','{$this->clave}','{$this->tipo_usuario}',{$this->id_tipo_usuario}, NOW(),NOW())";
+                    '{$this->usuario}','{$encriptacionClave}','{$this->tipo_usuario}','{$this->id_tipo_usuario}', '{$fActual}','{$fModificacion}')";
+        print $sql;
         $this->con->consultaSimple($sql);
     }
     
