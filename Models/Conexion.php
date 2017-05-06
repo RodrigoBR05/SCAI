@@ -2,10 +2,14 @@
 	
 class Conexion{
     private $datos = array(
-	"host" => "163.178.107.130",
-	"user" => "adm",
-	"pass" => "saucr.092",
-	"db" => "scai"
+	//"host" => "163.178.107.130",
+	//"user" => "adm",
+	//"pass" => "saucr.092",
+	"db" => "scai",
+        //Base local 
+        "host" => "localhost",
+        "user" => "root",
+	"pass" => "melm0360"
     );
     
     //Tipos de usuario
