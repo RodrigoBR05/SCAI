@@ -1,10 +1,8 @@
 <?php namespace Controllers;
-    
-    require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Models/Usuario.php';
-    
+        
     use Models\Usuario as Usuario;        
     
-    /*
+    /* Esto me sirve para el agregar usuario
     $id_usuario = $_POST['id_usuario']; 
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos']; 

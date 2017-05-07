@@ -4,7 +4,7 @@
 
       <ul id="slide-out" class="side-nav fixed light-blue darken-1">
         <li><div class="userView">
-          <img class="circle" src="../assets/img/logo.png">
+          <img class="circle" src="<?php echo URL; ?>Views/assets/img/logo.png">
         </div></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">                          

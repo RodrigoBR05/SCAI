@@ -1,6 +1,4 @@
-<?php namespace Controllers;   
-
-    require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Models/Autenticacion.php';
+<?php namespace Controllers; 
 
     use Models\Autenticacion as Autenticacion;
 
@@ -13,12 +11,24 @@
         }
         
         public function index(){
-            header('Location: Views/usuarios/index.php');
+            if ($_POST) {                
+                $usuario = (isset($_POST['usuario']) ? $_POST['usuario'] : '');
+                $verificarUser=$this->login($_POST['usuario'],$_POST['password']);
+                if($verificarUser){
+                    $auten = new \Controllers\AutenticacionController();
+                    $verificarUser=$auten->login($_POST['usuario'],$_POST['password']);
+                    if ($verificarUser) {
+                        $_SESSION['admin']= $verificarUser;
+                        header('Location: '.URL.'usuarios');
+                    }
+                }
+            }
         }
-
+        
         public function login($usuario,$clave){
             $datos = $this->autenticacion->login($usuario,$clave);            
-            return $datos;
+            return $datos;            
         }
+
     }
 ?>

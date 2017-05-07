@@ -1,11 +1,7 @@
 <?php  
 session_start(); 
-include '../Head.php'; 
-include '../HeaderAdminGeneral.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Controllers/UsuariosController.php';
-
-$usuariosController = new \Controllers\UsuariosController();
-$datos = $usuariosController->index();
+include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
+include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
 ?>
 
 <!--Inicio de los elementos-->
@@ -86,4 +82,4 @@ $datos = $usuariosController->index();
         </div>
         
 </main>
-<?php    include '../Footer.php';?>
+<?php    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>

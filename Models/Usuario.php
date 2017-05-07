@@ -1,7 +1,5 @@
 <?php namespace Models;
 
-require_once 'Conexion.php';
-
 class Usuario{
     private $id_usuario;
     private $nombre;
@@ -29,7 +27,7 @@ class Usuario{
     public function get($atributo){
 	return $this->$atributo;
     }
-    
+
     public function toList(){
         $sql = "SELECT * FROM usuario";
         $datos = $this->con->consultaRetorno($sql);
