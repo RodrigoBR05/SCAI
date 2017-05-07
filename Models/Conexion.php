@@ -1,16 +1,20 @@
 <?php namespace Models;
 	
 class Conexion{
+    /*private $datos = array(
+	"host" => "163.178.107.130",
+	"user" => "adm",
+	"pass" => "saucr.092",
+	"db" => "scai"
+    );*/
+     
+     
     private $datos = array(
-	//"host" => "163.178.107.130",
-	//"user" => "adm",
-	//"pass" => "saucr.092",
-	"db" => "scai",
-        //Base local 
-        "host" => "localhost",
-        "user" => "root",
-	"pass" => "melm0360"
-    );
+	"host" => "localhost",
+	"user" => "root",
+	"pass" => "melm0360",
+	"db" => "scai"
+    ); 
     
     //Tipos de usuario
     //Administrador general = 1
