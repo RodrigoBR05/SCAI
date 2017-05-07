@@ -1,4 +1,4 @@
-<?php namespace Controllers;
+<?php namespace Controllers;   
 
     require_once 'Models/Autenticacion.php';
 

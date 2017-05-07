@@ -1,5 +1,20 @@
 <?php    include '../Head.php';?>
 <?php    include '../HeaderAdminGeneral.php';?>
+
+<!--Inicio de los elementos-->
+<script>
+    $(document).ready(function(){
+        $('#tableUsuarios').DataTable({
+            "dom": '<"right"i>rt<"left"fl>rt<"bottom"p><"clear">',
+        });
+        
+        $("select").val('10');
+  $('select').addClass("browser-default");
+  $('select').material_select();
+    });
+  
+</script>
+    
 <header>
     <nav class="top-nav">
         <div class="container center">
@@ -34,7 +49,9 @@
 
     </div>
     <div class="divider"></div>
-        <table class="striped centered responsive-table">
+    <div class="row responsive-table">       
+    
+    <table class="display" id="tableUsuarios">
             <thead>
               <tr>
                   <th>Name</th>
@@ -48,7 +65,8 @@
                   <th>Item Price</th>
                   <th>Name</th>
                   <th>Item Name</th>
-                  <th>Acciones</th>
+                  <th>Actualizar</th>
+                  <th>Eliminar</th>
               </tr>
             </thead>
 
@@ -65,8 +83,10 @@
                 <td>$0.87</td>
                 <td>Alvin</td>
                 <td>Eclair</td>
-                <td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -82,8 +102,10 @@
                 <td>$0.87</td>
                 <td>Alvin</td>
                 <td>Eclair</td>
-                <td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -99,8 +121,10 @@
                 <td>$0.87</td>
                 <td>Alvin</td>
                 <td>Eclair</td>
-                <td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -116,8 +140,10 @@
                 <td>$0.87</td>
                 <td>Alvin</td>
                 <td>Eclair</td>
-                <td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
@@ -133,14 +159,37 @@
                 <td>$0.87</td>
                 <td>Alvin</td>
                 <td>Eclair</td>
-                <td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
+                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
+                </td>
+              </tr>
+              
+               <tr>
+                <td>Rodrigo</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td class="center">
+                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
+                </td>
+                <td class="center">
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
                 </td>
               </tr>
               
             </tbody>
           </table>
+        </div>
           <ul class="pagination center">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
             <li class="active"><a href="#!">1</a></li>
