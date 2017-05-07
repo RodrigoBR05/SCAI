@@ -1,7 +1,7 @@
 <?php
     //Login administrador
     if(isset($_POST['usuario'],$_POST['password'])){
-        require_once 'Controllers/AutenticacionController.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Controllers/AutenticacionController.php';
 
         $auten = new \Controllers\AutenticacionController();
         $verificarUser=$auten->login($_POST['usuario'],$_POST['password']);

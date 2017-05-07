@@ -1,16 +1,34 @@
-<?php    include '../Head.php';?>
-<?php    include '../HeaderAdminGeneral.php';?>
+<?php  
+session_start(); 
+include '../Head.php'; 
+include '../HeaderAdminGeneral.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Controllers/UsuariosController.php';
+
+$usuariosController = new \Controllers\UsuariosController();
+$datos = $usuariosController->index();
+?>
 
 <!--Inicio de los elementos-->
 <script>
     $(document).ready(function(){
         $('#tableUsuarios').DataTable({
-            "dom": '<"right"i>rt<"left"fl>rt<"bottom"p><"clear">',
+            "dom": '<"left"f>rt<"bottom"ip><"clear">',
+            "order": [[1,"asc"]],
+            "language": {
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ registros)",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "No se encontraron registros coincidentes",
+            "paginate": {
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+        }
         });
         
-        $("select").val('10');
-  $('select').addClass("browser-default");
-  $('select').material_select();
     });
   
 </script>
@@ -24,183 +42,48 @@
 </header>
 
 <main >
-    <br>    
-    <div class="row">
-        <div class="input-field  col l3 offset-l1"><a class="waves-effect waves-light btn light-blue darken-1">Generar reporte</a></div>         
-
-        <div class="input-field col l4">
-          <i class="material-icons prefix">search</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Buscar...</label>
-        </div>
-        
-        <div class="input-field col l2">
-            <select>
-              <option value="" disabled selected>Ordenar por:</option>
-              <option value="1">Nombre(A-Z)</option>
-              <option value="2">Nombre(Z-A)</option>
-              <option value="3">Apellido(A-Z)</option>
-              <option value="3">Apellido(Z-A)</option>
-
-            </select>
-        </div>
-        
-        
-
+    <div class="container center">
+        <div class="input-field  col l3 offset-l1"><a class="waves-effect waves-light btn light-blue darken-1">Generar reporte</a></div>             
     </div>
+    <br>    
+    
     <div class="divider"></div>
     <div class="row responsive-table">       
     
     <table class="display" id="tableUsuarios">
             <thead>
               <tr>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Actualizar</th>
-                  <th>Eliminar</th>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Email</th>
+                  <th>Teléfono</th>
+                  <th>Puesto</th>
+                  <th>Fecha ingreso</th>
+                  <th>Acciones</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
-              
-               <tr>
-                <td>Rodrigo</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>
-                </td>
-                <td class="center">
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete_forever</i></a>
-                </td>
-              </tr>
+                <?php while($row = mysqli_fetch_array($datos)){ ?>
+                    <tr>
+                        <td><?php echo $row['id_usuario']; ?></td>
+                        <td><?php echo $row['nombre']; ?></td>
+                        <td><?php echo $row['apellidos']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row['telefono']; ?></td>
+                        <td><?php echo $row['puesto']; ?></td>
+                        <td><?php echo $row['fecha_ingreso']; ?></td>
+                        <td class="center">
+                            <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>                       
+                            <a class="btn_delete btn-floating waves-effect waves-light red" id="<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
+                        </td>
+                    </tr>
+                <?php } ?>              
               
             </tbody>
           </table>
         </div>
-          <ul class="pagination center">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-          </ul>
+        
 </main>
 <?php    include '../Footer.php';?>
-
-
-

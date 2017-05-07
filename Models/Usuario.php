@@ -40,16 +40,16 @@ class Usuario{
         $fActual = date("Y/m/d");
         $fModificacion = date("Y/m/d");
         $encriptacionClave = password_hash($this->clave, PASSWORD_DEFAULT, [15]);
-        $sql = "INSERT INTO scai.usuario (nombre,apellidos,email,telefono,puesto,usuario,clave,tipo_usuario,id_tipo_usuario,
+        $sql = "INSERT INTO usuario (nombre,apellidos,email,telefono,puesto,usuario,clave,tipo_usuario,id_tipo_usuario,
                 fecha_ingreso,fecha_modificacion)
                 VALUES ('{$this->nombre}', '{$this->apellidos}', '{$this->email}', '{$this->telefono}','{$this->puesto}',
                     '{$this->usuario}','{$encriptacionClave}','{$this->tipo_usuario}','{$this->id_tipo_usuario}', '{$fActual}','{$fModificacion}')";
-        print $sql;
+        //print $sql;
         $this->con->consultaSimple($sql);
     }
     
     public function delete(){
-        $sql = "DELETE FROM usuario WHERE id = '{$this->id_usuario}'";
+        $sql = "DELETE FROM usuario WHERE id_usuario = '{$this->id_usuario}'";
         $this->con->consultaSimple($sql);
     }
     

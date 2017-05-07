@@ -1,8 +1,24 @@
 <?php namespace Controllers;
     
-    require_once '../Models/Usuario.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Models/Usuario.php';
     
-    use Models\Usuario as Usuario;
+    use Models\Usuario as Usuario;        
+    
+    /*
+    $id_usuario = $_POST['id_usuario']; 
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos']; 
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono']; 
+    $puesto = $_POST['puesto'];
+    $usuario = $_POST['usuario']; 
+    $clave = $_POST['clave'];
+    $tipo_usuario = $_POST['tipo_usuario']; 
+    $id_tipo_usuario = $_POST['id_tipo_usuario'];
+    $fecha_ingreso = $_POST['fecha_ingreso']; 
+    $fecha_modificacion = $_POST['fecha_modificacion'];
+     * */
+     
 
     class UsuariosController{
         
@@ -13,8 +29,8 @@
         }
         
         public function index(){
-            //print_r($this->usuario->toList());
-            //header('Location: Views/usuarios/index.php');
+            $datos = $this->usuario->toList();
+            return $datos;            
         }
         
         public function create(){
@@ -32,11 +48,17 @@
             $this->usuario->create();
         }
         
+        public function delete($id){
+            $this->usuario->set("id_usuario",$id);
+            $this->usuario->delete();
+            header('Location: index.php');
+        }
+        
         
     }
     $usuarios = new UsuariosController();
     //$usuarios->index();
-    $usuarios->create();
+    //$usuarios->create();
     
 ?>
 

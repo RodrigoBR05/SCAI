@@ -1,6 +1,6 @@
 <?php namespace Controllers;   
 
-    require_once 'Models/Autenticacion.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/SCAI/Models/Autenticacion.php';
 
     use Models\Autenticacion as Autenticacion;
 
