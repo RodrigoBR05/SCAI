@@ -11,7 +11,7 @@ if (isset($_SESSION['admin'])) {
 <!--Inicio de los elementos-->
 <script>
     $(document).ready(function(){
-        $('#tableUsuarios').DataTable({
+        $('#tableDepartamentos').DataTable({
             "dom": '<"left"f>rt<"bottom"ip><"clear">',
             "order": [[0,"asc"]],
             "language": {
@@ -36,7 +36,7 @@ if (isset($_SESSION['admin'])) {
 <header>
     <nav class="top-nav">
         <div class="container center">
-          <div class="nav-wrapper"><a class="page-title">Usuarios</a></div>
+          <div class="nav-wrapper"><a class="page-title">Departamentos</a></div>
         </div>
     </nav>
 </header>
@@ -50,15 +50,14 @@ if (isset($_SESSION['admin'])) {
     <div class="divider"></div>
     <div class="row responsive-table">       
     
-    <table class="display" id="tableUsuarios">
+    <table class="display" id="tableDepartamentos">
             <thead>
               <tr>
                   <th class="center">Id</th>
+                  <th class="center">Registrado/Modificado por</th>
+                  <th class="center">Código</th>
                   <th class="center">Nombre</th>
-                  <th class="center">Apellidos</th>
-                  <th class="center">Email</th>
-                  <th class="center">Teléfono</th>
-                  <th class="center">Puesto</th>
+                  <th class="center">Descipción</th>
                   <th class="center">Acciones</th>
               </tr>
             </thead>
@@ -66,16 +65,15 @@ if (isset($_SESSION['admin'])) {
             <tbody>
                 <?php while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
-                        <td class="center"><?php echo $row['id_usuario']; ?></td>
+                        <td class="center"><?php echo $row['id_departamento']; ?></td>
+                        <td class="center"><?php echo $row['nombre_usuario']; ?></td>
+                        <td class="center"><?php echo $row['codigo']; ?></td>
                         <td class="center"><?php echo $row['nombre']; ?></td>
-                        <td class="center"><?php echo $row['apellidos']; ?></td>
-                        <td class="center"><?php echo $row['email']; ?></td>
-                        <td class="center"><?php echo $row['telefono']; ?></td>
-                        <td class="center"><?php echo $row['puesto']; ?></td>
+                        <td class="center"><?php echo $row['descripcion']; ?></td>
                         <td class="center">
-                            <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>usuarios/read/<?php echo $row['id_usuario']; ?>"><i class="material-icons">zoom_in</i></a>                       
-                            <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>usuarios/update/<?php echo $row['id_usuario']; ?>"><i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>usuarios/delete/<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>departamentos/read/<?php echo $row['id_departamento']; ?>"><i class="material-icons">zoom_in</i></a>                       
+                            <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>departamentos/update/<?php echo $row['id_departamento']; ?>"><i class="material-icons">build</i></a>                       
+                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>departamentos/delete/<?php echo $row['id_departamento']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
                 <?php } ?>              

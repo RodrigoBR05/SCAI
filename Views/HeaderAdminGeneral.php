@@ -32,8 +32,8 @@
               <li class="bold"><a class="collapsible-header waves-effect waves-light white-text"><i class="material-icons left white-text">home</i>DEPARTAMENTOS</a>
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar departamento</a></li>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de departamentos</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>departamentos/create"><i class="material-icons left white-text">playlist_add</i>Agregar departamento</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>departamentos"><i class="material-icons left white-text">list</i>Listado de departamentos</a></li>
                   </ul>
                 </div>
               </li>
