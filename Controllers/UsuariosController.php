@@ -1,21 +1,5 @@
 <?php namespace Controllers;
-    use Models\Usuario as Usuario;        
-    
-    /* Esto me sirve para el agregar usuario
-    $id_usuario = $_POST['id_usuario']; 
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellidos']; 
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono']; 
-    $puesto = $_POST['puesto'];
-    $usuario = $_POST['usuario']; 
-    $clave = $_POST['clave'];
-    $tipo_usuario = $_POST['tipo_usuario']; 
-    $id_tipo_usuario = $_POST['id_tipo_usuario'];
-    $fecha_ingreso = $_POST['fecha_ingreso']; 
-    $fecha_modificacion = $_POST['fecha_modificacion'];
-     * */
-     
+    use Models\Usuario as Usuario;      
 
     class UsuariosController{
         
@@ -30,27 +14,53 @@
             return $datos;            
         }
         
-        public function create(){
-            $this->usuario->set("nombre", 'Rodrigo' );
-            $this->usuario->set("apellidos", 'Brenes Ramírez');
-            $this->usuario->set("email", 'rodri2018.bre05@gmail.com');
-            $this->usuario->set("telefono", '88888888');
-            $this->usuario->set("puesto", 'Administrador');
-            $this->usuario->set("usuario", 'rodrigo2018');
-             $this->usuario->set("clave", 'rodrigo');
-            $this->usuario->set("tipo_usuario", 'Administrador general');
-            $this->usuario->set("id_tipo_usuario", 2);
-            $this->usuario->set("fecha_ingreso", 'NOW()');
-            $this->usuario->set("fecha_modificacion", 'NOW()');
-            $this->usuario->create();
+        public function create(){            
+            if($_POST){
+                $this->usuario->set("nombre", $_POST['nombre']);
+                $this->usuario->set("apellidos", $_POST['apellidos']);
+                $this->usuario->set("email", $_POST['email']);
+                $this->usuario->set("telefono", $_POST['telefono']);
+                $this->usuario->set("puesto", $_POST['puesto']);
+                $this->usuario->set("usuario", $_POST['user']);
+                 $this->usuario->set("clave", $_POST['password']);
+                $this->usuario->set("id_tipo_usuario", $_POST['id_tipo_usuario']);
+                $this->usuario->create();
+                //Página de listado de usuarios
+                header("Location: ".URL."usuarios");
+            }            
         }
         
+        public function read($id){
+            $this->usuario->set("id_usuario", $id);
+            $datos = $this->usuario->read();
+            return $datos;
+        }
+        
+        public function update($id){
+            if (!$_POST) {
+                $this->usuario->set("id_usuario", $id);
+                $datos = $this->usuario->read();
+                return $datos;
+            }else{
+                $this->usuario->set("id_usuario", $id);
+                $this->usuario->set("nombre", $_POST['nombre']);
+                $this->usuario->set("apellidos", $_POST['apellidos']);
+                $this->usuario->set("email", $_POST['email']);
+                $this->usuario->set("telefono", $_POST['telefono']);
+                $this->usuario->set("puesto", $_POST['puesto']);
+                $this->usuario->set("id_tipo_usuario", $_POST['id_tipo_usuario']);
+                $this->usuario->update();
+                //Página de listado de usuarios
+                header("Location: ".URL."usuarios");
+            }
+        }
+
+
         public function delete($id){
             $this->usuario->set("id_usuario",$id);
             $this->usuario->delete();
             header('Location:'.URL.'usuarios');
         }
-        
         
     }
     $usuarios = new UsuariosController();    
