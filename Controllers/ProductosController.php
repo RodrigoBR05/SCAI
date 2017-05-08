@@ -2,7 +2,7 @@
 namespace Controllers;
 use Models\Producto as Producto;
 
-class ProductoController {
+class ProductosController {
     private $producto;
     
     function __construct() {
