@@ -1,5 +1,4 @@
 <?php namespace Controllers;
-        
     use Models\Usuario as Usuario;        
     
     /* Esto me sirve para el agregar usuario
@@ -34,13 +33,13 @@
         public function create(){
             $this->usuario->set("nombre", 'Rodrigo' );
             $this->usuario->set("apellidos", 'Brenes Ramírez');
-            $this->usuario->set("email", 'rodri2017.bre05@gmail.com');
+            $this->usuario->set("email", 'rodri2018.bre05@gmail.com');
             $this->usuario->set("telefono", '88888888');
             $this->usuario->set("puesto", 'Administrador');
-            $this->usuario->set("usuario", 'rodrigo2017');
+            $this->usuario->set("usuario", 'rodrigo2018');
              $this->usuario->set("clave", 'rodrigo');
             $this->usuario->set("tipo_usuario", 'Administrador general');
-            $this->usuario->set("id_tipo_usuario", 1);
+            $this->usuario->set("id_tipo_usuario", 2);
             $this->usuario->set("fecha_ingreso", 'NOW()');
             $this->usuario->set("fecha_modificacion", 'NOW()');
             $this->usuario->create();
@@ -49,14 +48,11 @@
         public function delete($id){
             $this->usuario->set("id_usuario",$id);
             $this->usuario->delete();
-            header('Location: index.php');
+            header('Location:'.URL.'usuarios');
         }
         
         
     }
-    $usuarios = new UsuariosController();
-    //$usuarios->index();
-    //$usuarios->create();
-    
+    $usuarios = new UsuariosController();    
 ?>
 

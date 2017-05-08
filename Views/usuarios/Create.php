@@ -1,6 +1,8 @@
 <?php
-    
+session_start(); 
+if (isset($_SESSION['id_admin'])) {
 ?>
+
 <header>
     <nav class="top-nav">
         <div class="container center">
@@ -14,3 +16,4 @@
     
 </main>
 
+<?php }else{ header('Location: '.URL.'autenticacion');}?>

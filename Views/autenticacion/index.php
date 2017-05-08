@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $login = new Login();
 
     class Login{

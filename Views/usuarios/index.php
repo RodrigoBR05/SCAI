@@ -1,7 +1,11 @@
 <?php  
 session_start(); 
-include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
-include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
+if (!isset($_SESSION['admin'])) {
+   $_SESSION['admin'] = $_GET['admin'];
+}
+if (isset($_SESSION['admin'])) {
+    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
+    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
 ?>
 
 <!--Inicio de los elementos-->
@@ -9,7 +13,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
     $(document).ready(function(){
         $('#tableUsuarios').DataTable({
             "dom": '<"left"f>rt<"bottom"ip><"clear">',
-            "order": [[1,"asc"]],
+            "order": [[0,"asc"]],
             "language": {
             "info": "Mostrando página _PAGE_ de _PAGES_",
             "infoEmpty": "No hay registros disponibles",
@@ -55,7 +59,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
                   <th>Email</th>
                   <th>Teléfono</th>
                   <th>Puesto</th>
-                  <th>Fecha ingreso</th>
                   <th>Acciones</th>
               </tr>
             </thead>
@@ -69,10 +72,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['telefono']; ?></td>
                         <td><?php echo $row['puesto']; ?></td>
-                        <td><?php echo $row['fecha_ingreso']; ?></td>
                         <td class="center">
+                            <a class="btn-floating waves-effect waves-light green"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" id="<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>usuarios/delete/<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
                 <?php } ?>              
@@ -83,3 +86,4 @@ include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
         
 </main>
 <?php    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
+<?php }else{ header('Location: '.URL.'autenticacion');}?>

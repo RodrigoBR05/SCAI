@@ -15,17 +15,15 @@
                 $usuario = (isset($_POST['usuario']) ? $_POST['usuario'] : '');
                 $verificarUser=$this->login($_POST['usuario'],$_POST['password']);
                 if($verificarUser){
-                    $auten = new \Controllers\AutenticacionController();
-                    $verificarUser=$auten->login($_POST['usuario'],$_POST['password']);
-                    if ($verificarUser) {
-                        $_SESSION['admin']= $verificarUser;
-                        header('Location: '.URL.'usuarios');
+                    if ($verificarUser['id_tipo_usuario'] == 1) {
+                        header('Location: '.URL.'usuarios?admin='.$verificarUser['id_usuario']);
                     }
+                    
                 }
             }
         }
         
-        public function login($usuario,$clave){
+        private function login($usuario,$clave){
             $datos = $this->autenticacion->login($usuario,$clave);            
             return $datos;            
         }
