@@ -1,5 +1,4 @@
-<<?php
-namespace Models;
+<?php Namespace Models;
 /**
  * Description of Activo
  *
@@ -45,7 +44,7 @@ class Activo {
     }//create
     
     public function update(){
-         $sql = "UPDATE activo set codigo = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
+         $sql = "UPDATE activo set numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
           donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
           valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}', ruta_imagen = '{$this->rutaImagen}',
           fecha_modificacion = '{$this->fecha_modificacion}' WHERE codigo = '$this->codigo'";
@@ -67,8 +66,8 @@ class Activo {
     
     public function getActivos(){
         $sql = "SELECT * FROM activo";
-        $datos = $this->con->consultaRetorno($sql);
-        return $datos;
+        $datos = $this->con->consultaRetorno($sql);    
+        return $datos;        
     }////getActivos
     
     public function generarCodigo(){
