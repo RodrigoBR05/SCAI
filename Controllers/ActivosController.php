@@ -3,8 +3,9 @@
 namespace Controllers;
 use Models\Activo as Activo;
 
-class ActivoController {
+class ActivosController {
     private $activo;
+    
     
     function __construct() {
         $this->activo = new Activo();
@@ -14,6 +15,7 @@ class ActivoController {
         $datos = $this->activo->getActivos();
         return $datos;
     }//index
+    
     
     public function agregar(){
         
@@ -31,4 +33,8 @@ class ActivoController {
         
     }//eliminar
     
+    
 }//class
+
+    //$activos = new ActivosController();
+?>

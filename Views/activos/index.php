@@ -64,6 +64,11 @@ if (isset($_SESSION['admin'])) {
             </thead>
 
             <tbody>
+                
+                <?php
+                if (isset($datos)) {
+                
+                 ?>
                 <?php while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
                         <td><?php echo $row['codigo']; ?></td>
@@ -75,10 +80,11 @@ if (isset($_SESSION['admin'])) {
                         <td class="center">
                             <a class="btn-floating waves-effect waves-light green"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>usuarios/delete/<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
-                <?php } ?>              
+                <?php }
+                }?>              
               
             </tbody>
           </table>
