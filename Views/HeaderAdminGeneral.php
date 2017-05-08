@@ -43,7 +43,7 @@
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
                     <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar activo</a></li>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de activos</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>activos"><i class="material-icons left white-text">list</i>Listado de activos</a></li>
                   </ul>
                 </div>
               </li>
