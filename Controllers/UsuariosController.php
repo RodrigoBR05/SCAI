@@ -31,7 +31,7 @@
         }
         
         public function create(){
-            $this->usuario->set("nombre", 'Rodrigo' );
+            $this->usuario->set("nombre", 'Melma' );
             $this->usuario->set("apellidos", 'Brenes Ramírez');
             $this->usuario->set("email", 'rodri2018.bre05@gmail.com');
             $this->usuario->set("telefono", '88888888');
