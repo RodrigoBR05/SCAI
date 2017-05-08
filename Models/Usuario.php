@@ -38,6 +38,13 @@ class Usuario{
         $fActual = date("Y/m/d");
         $fModificacion = date("Y/m/d");
         $encriptacionClave = password_hash($this->clave, PASSWORD_DEFAULT, [15]);
+        if ($this->id_tipo_usuario == 1) {
+            $this->tipo_usuario = "Administrador general";
+        } elseif ($this->id_tipo_usuario == 2) {
+            $this->tipo_usuario = "Administrador de activos";
+        } elseif ($this->id_tipo_usuario == 3) {
+            $this->tipo_usuario = "Administrador de inventario comedor";
+        } 
         $sql = "INSERT INTO usuario (nombre,apellidos,email,telefono,puesto,usuario,clave,tipo_usuario,id_tipo_usuario,
                 fecha_ingreso,fecha_modificacion)
                 VALUES ('{$this->nombre}', '{$this->apellidos}', '{$this->email}', '{$this->telefono}','{$this->puesto}',
@@ -52,15 +59,24 @@ class Usuario{
     }
     
     public function update(){
+        $fModificacion = date("Y/m/d");
+        if ($this->id_tipo_usuario == 1) {
+            $this->tipo_usuario = "Administrador general";
+        } elseif ($this->id_tipo_usuario == 2) {
+            $this->tipo_usuario = "Administrador de activos";
+        } elseif ($this->id_tipo_usuario == 3) {
+            $this->tipo_usuario = "Administrador de inventario comedor";
+        } 
         $sql = "UPDATE usuario SET nombre = '{$this->nombre}', apellidos = '{$this->apellidos}', email = '{$this->email}',"
-        . "telefono = '{$this->telefono}',puesto = '{$this->puesto}',usuario = '{$this->usuario}',clave = '{$this->clave}',"
-        . "tipo_usuario= '{$this->tipo_usuario}',id_tipo_usuario = '{$this->id_tipo_usuario}',fecha_modificacion = 'NOW()' "
-        . "WHERE id_usuario = {$this->id_usuario}";
+        . "telefono = '{$this->telefono}',puesto = '{$this->puesto}',"
+        . "tipo_usuario= '{$this->tipo_usuario}',id_tipo_usuario = '{$this->id_tipo_usuario}',fecha_modificacion = '{$fModificacion}' "
+        . "WHERE id_usuario = '{$this->id_usuario}'";
+        print "##########################################".$sql;
         $this->con->consultaSimple($sql);
     }
 
     public function read(){
-        $sql = "SELECT * FROM usuario WHERE id_usuario = {$this->id_usuario}";
+        $sql = "SELECT * FROM usuario WHERE id_usuario = '{$this->id_usuario}'";
         $datos = $this->con->consultaRetorno($sql);
 	//Envia un array
 	$row = mysqli_fetch_assoc($datos);
