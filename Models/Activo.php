@@ -6,6 +6,7 @@
  */
 class Activo {
     
+    private $idActivo;
     private $idUsuario;
     private $codigo;
     private $numeroSerie;
@@ -47,18 +48,19 @@ class Activo {
     public function update(){
          $sql = "UPDATE activo set numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
           donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
-          valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}', ruta_imagen = '{$this->rutaImagen}',
-          fecha_modificacion = '{$this->fechaModificacion}' WHERE codigo = '$this->codigo'";
+          valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}',
+          fecha_modificacion = '{$this->fechaModificacion}' WHERE id_activo = '$this->idActivo'";
+         //print $sql;
           $this->con->consultaSimple($sql);
     }//update
     
     public function delete(){
-        $sql = "DELETE activo where codigo = '$this->codigo'";
+        $sql = "DELETE activo where id_activo = '$this->idActivo'";
         $this->con->consultaSimple($sql);
     }//delete
     
     public function getActivo(){
-        $sql = "SELECT * FROM activo WHERE codigo = {$this->codigo}";
+        $sql = "SELECT * FROM activo WHERE id_activo = '{$this->idActivo}'";
         $datos = $this->con->consultaRetorno($sql);
 	//Envia un array
 	$row = mysqli_fetch_assoc($datos);

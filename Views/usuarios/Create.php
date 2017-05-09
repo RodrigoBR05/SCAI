@@ -16,7 +16,7 @@ if (isset($_SESSION['admin'])) {
 <main>
     <div class="container">
     <div class="row">
-        <form class="col s12" method="POST">
+        <form class="col s12" method="POST" id="agregar_form">
           <div class="row">
             <div class="input-field col s6">
               <input type='text' id="nombre" name="nombre" class="validate" required>
@@ -65,10 +65,21 @@ if (isset($_SESSION['admin'])) {
               </div>
           </div>
             <div class='row center'>
-              <button type='submit' name='btn_login' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar usuario</button>
+                <button data-target="modalAgregarUsuario" name='btn_login' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar usuario</button>
             </div>
         </form>
     </div>
     </div>
+    <!--MODAL DE CONFIRMACIÓN-->
+    <div id="modalAgregarUsuario" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Agregar usuario</h4>
+          <p>¿Desea agregar el usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" form="agregar_form" class="modal-action modal-close waves-light waves-green btn-flat black-text">Cancelar</button>
+            <button type="submit" form="agregar_form" class="modal-action modal-close waves-light waves-green btn-flat white-text blue darken-4">Aceptar</button>
+        </div>
+      </div>
 </main>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>

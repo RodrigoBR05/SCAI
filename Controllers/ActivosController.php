@@ -35,29 +35,48 @@ class ActivosController {
             $ruta ="";
            
             if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite * 1024) {
-                echo '********************************************************************AQUIII';
+                //echo '********************************************************************AQUIII';
                 $nombre = date('is') . $_FILES['imagen']['name'];
                 $ruta = "Views" . "/" . "activos" . "/" . "imagenes" ."/" . $nombre;
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
                 $this->activo->set("rutaImagen", $ruta); 
-                echo '************************************************************************'. $nombre;
+                //echo '************************************************************************'. $nombre;
             }
             $this->activo->create();
         }//POST
         
     }//create
     
-    public function editar($id){
-        
-    }//editar
+    public function update($id){
+        if (!$_POST) {
+            $this->activo->set("idActivo", $id);
+            $datos = $this->activo->getActivo();
+            return $datos;
+        }
+        else {
+            $this->activo->set("idActivo", $id);
+            $this->activo->set("idUsuario", 3); //CAMBIAR****
+            $this->activo->set("codigo", "COM1"); //CAMBIAR****
+            $this->activo->set("numeroSerie", $_POST['numSerie']);
+            $this->activo->set("nombre", $_POST['nombre']);
+            $this->activo->set("descripcion", $_POST['descripcion']);
+            $this->activo->set("donadoPor", $_POST['donadoPor']);
+            $this->activo->set("ubicacionDepartamento", $_POST['departamento']);
+            $this->activo->set("valorAdquisicion", $_POST['valorAdquisicion']);
+            $this->activo->set("valorActual", $_POST['valorActual']);
+            $this->activo->update();
+        }
+    }//update
     
-    public function ver($id){
-        
-    }//ver
+    public function read($id){
+         $this->activo->set("idActivo", $id);
+         $datos = $this->activo->getActivo();
+         return $datos;
+    }//read
     
-    public function eliminar($id){
+    public function delete($id){
         
-    }//eliminar
+    }//delete
     
     
 }//class
