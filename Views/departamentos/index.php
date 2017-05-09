@@ -62,7 +62,9 @@ if (isset($_SESSION['admin'])) {
             </thead>
 
             <tbody>
-                <?php while($row = mysqli_fetch_array($datos)){ ?>
+                <?php
+                if (!empty($datos)) {
+                    while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
                         <td class="center"><?php echo $row['id_departamento']; ?></td>
                         <td class="center"><?php echo $row['nombre_usuario']; ?></td>
@@ -74,7 +76,8 @@ if (isset($_SESSION['admin'])) {
                             <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>departamentos/delete/<?php echo $row['id_departamento']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
-                <?php } ?>              
+                <?php }
+                }?>              
               
             </tbody>
           </table>

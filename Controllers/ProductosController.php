@@ -16,7 +16,7 @@ class ProductosController {
     
     public function create(){
         if($_POST){
-            $this->producto->set("idUsuario", 3); //CAMBIAR****
+            $this->producto->set("idUsuario", $_POST['id_usuario']);
             $this->producto->set("nombre", $_POST['nombre']);
             $this->producto->set("descripcion", $_POST['descripcion']);
             $this->producto->set("peso", $_POST['peso']);
@@ -29,14 +29,13 @@ class ProductosController {
             $ruta ="";
            
             if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite * 1024) {
-                echo '********************************************************************AQUIII';
                 $nombre = date('is') . $_FILES['imagen']['name'];
                 $ruta = "Views" . "/" . "productos" . "/" . "imagenes" ."/" . $nombre;
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
                 $this->producto->set("rutaImagen", $ruta); 
-                echo '************************************************************************'. $nombre;
             }
             $this->producto->create();
+            header('Location:'.URL.'productos');
         }//POST
         
     }//create
@@ -60,7 +59,16 @@ class ProductosController {
             $this->producto->set("proveedor", $_POST['proveedor']);
             $this->producto->set("cantidadMinima", $_POST['cantidadMinima']);
             $this->producto->set("cantidadActual", $_POST['cantidadActual']);
-           
+            //Para guardar la imagen
+            $permitidos = array("image/jpeg", "image/png", "image/gif", "image/jpg");
+            $limite = 700;
+            $ruta ="";           
+            if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite * 1024) {
+                $nombre = date('is') . $_FILES['imagen']['name'];
+                $ruta = "Views" . "/" . "productos" . "/" . "imagenes" ."/" . $nombre;
+                move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
+                $this->producto->set("rutaImagen", $ruta); 
+            }
             $this->producto->update();
         }    
         

@@ -11,7 +11,7 @@ if (isset($_SESSION['admin'])) {
 <!--Inicio de los elementos-->
 <script>
     $(document).ready(function(){
-        $('#tableUsuarios').DataTable({
+        $('#tableProductos').DataTable({
             "dom": '<"left"f>rt<"bottom"ip><"clear">',
             "order": [[0,"asc"]],
             "language": {
@@ -53,39 +53,42 @@ if (isset($_SESSION['admin'])) {
     <table class="display" id="tableProductos">
             <thead>
               <tr>
-                  <th>Nombre</th>
-                  <th>Descripcion</th>
-                  <th>Peso</th>
-                  <th>Proveedor</th>
-                  <th>Cantidad Minima</th>
-                  <th>Cantidad Actual</th>
-                  <th>Acciones</th>
+                  <th class="center">Nombre</th>
+                  <th class="center">Descripcion</th>
+                  <th class="center">Peso</th>
+                  <th class="center">Proveedor</th>
+                  <th class="center">Cantidad Minima</th>
+                  <th class="center">Cantidad Actual</th>
+                  <th class="center">Acciones</th>
               </tr>
             </thead>
 
             <tbody>
-                <?php while($row = mysqli_fetch_array($datos)){ ?>
+                <?php
+                if (!empty($datos)) {
+                    
+                  while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
-                        <td><?php echo $row['nombre']; ?></td>
-                        <td><?php echo $row['descripcion']; ?></td>
-                        <td><?php echo $row['peso']; ?></td>
-                        <td><?php echo $row['proveedor']; ?></td>
-                        <td><?php echo $row['cantidad_minima']; ?></td>
-                        <td><?php echo $row['cantidad_actual']; ?></td>
+                        <td class="center"><?php echo $row['nombre']; ?></td>
+                        <td class="center"><?php echo $row['descripcion']; ?></td>
+                        <td class="center"><?php echo $row['peso']; ?></td>
+                        <td class="center"><?php echo $row['proveedor']; ?></td>
+                        <td class="center"><?php echo $row['cantidad_minima']; ?></td>
+                        <td class="center"><?php echo $row['cantidad_actual']; ?></td>
                         <td class="center">
                             <a class="btn-floating waves-effect waves-light green " href="<?php echo URL; ?>productos/read/<?php echo $row['id_producto']; ?>" ><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>productos/update/<?php echo $row['id_producto']; ?>"><i class="material-icons">build</i></a>                       
                             <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>productos/delete/<?php echo $row['id_producto']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
-                <?php } ?>              
+                <?php }
+                }?>              
               
             </tbody>
           </table>
         </div>
         
 </main>
-<?php    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 <!--index productos-->
 

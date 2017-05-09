@@ -25,34 +25,35 @@ if (isset($_SESSION['admin'])) {
               <input type='text' id="nombre" name="nombre" class="validate" required>
               <label for="nombre" data-error="inválido" data-success="válido">Nombre</label>
             </div> 
-              <div class="input-field col s12">
-                <textarea id="descripcion" name="descripcion" class="materialize-textarea" class="validate" required></textarea>
-                <label for="descripcion" data-error="inválido" data-success="válido">Descripción del producto</label>
-            </div>
-              
-          </div>
-          <div class="row">
             <div class="input-field col s6">
               <input type='text' id="proveedor" name="proveedor" class="validate" required>
               <label for="proveedor" data-error="inválido" data-success="válido">Proveedor</label>
-            </div>
-              <div class="input-field col s6">
+            </div>                          
+          </div>
+          <div class="row">
+          <div class="input-field col s12">
+              <textarea id="descripcion" name="descripcion" class="materialize-textarea" class="validate" required></textarea>
+              <label for="descripcion" data-error="inválido" data-success="válido">Descripción del producto</label>
+          </div>                
+          </div>
+          <div class="row">            
+            <div class="input-field col s6">
               <input type='text' id="peso" name="peso" class="validate" required>
               <label for="peso" data-error="inválido" data-success="válido">Peso</label>
             </div>
             
-              <div class="input-field col s6">                 
-                 <select class="browser-default" name="tipoPeso" required>
-                  <option value="" disabled selected>Seleccione el tipo</option>
-                  <option value="UNIDADES">Unidades</option>
-                  <option value="KILOGRAMOS">Kilogramos</option>
-                  <option value="GRAMOS">Gramos</option>
-                  <option value="LITROS">Litros</option>
-                  <option value="GALONES">Galones</option>
-                </select>
-          </div>
+            <div class="input-field col s6">                 
+               <select class="browser-default" name="tipoPeso" required>
+                <option value="" disabled selected>Seleccione el tipo</option>
+                <option value="UNIDADES">Unidades</option>
+                <option value="KILOGRAMOS">Kilogramos</option>
+                <option value="GRAMOS">Gramos</option>
+                <option value="LITROS">Litros</option>
+                <option value="GALONES">Galones</option>
+              </select>
+            </div>
           </div>       
-            <div class="row">
+          <div class="row">
             <div class="input-field col s6">
                 <input type="number" id="cantidadMinima" name="cantidadMinima" class="validate" required>
               <label for="cantidadMinima" data-error="inválido" data-success="válido">Cantidad Mínima</label>
@@ -75,6 +76,7 @@ if (isset($_SESSION['admin'])) {
             <div class='row center'>
               <button data-target="modalAgregarProducto" name='btn_reg_producto' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar producto</button>
             </div>
+            <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
     </div>
     </div>
@@ -90,7 +92,6 @@ if (isset($_SESSION['admin'])) {
         </div>
       </div>
 </main>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 
 

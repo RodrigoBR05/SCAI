@@ -58,8 +58,9 @@ if (isset($_SESSION['admin'])) {
               <label for="valorActual" data-error="inválido" data-success="válido">Valor actual</label>
             </div>            
           </div>
-            <img src="Views/activos/imagenes/1908archivero.jpg" alt="Activo">
-            <?php echo $datos['ruta_imagen'];?>
+          <div class="row center">
+            <img src="<?php echo URL.$datos['ruta_imagen']; ?>" alt="Activo" width="150" height="150" alt="" class="circle responsive-img">
+          </div>
             <div class="row">       
             <div class="input-field col s6">
                 <label for="imagen">Cambiar imagen</label>
@@ -88,6 +89,5 @@ if (isset($_SESSION['admin'])) {
         </div>
       </div>
 </main>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 

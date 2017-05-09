@@ -51,13 +51,13 @@ class Producto {
            
     }//create
     public function update(){
-    $fActual = date("Y/m/d");    
-    $sql = "UPDATE producto set 
-    nombre = '{$this->nombre}', descripcion = '{$this->descripcion}', peso = '{$this->peso}',
-    proveedor = '{$this->proveedor}', cantidad_minima = '{$this->cantidadMinima}', cantidad_actual = '{$this->cantidadActual}',
-    ruta_imagen = '{$this->rutaImagen}', fecha_modificacion = '{$fActual}' 
-    WHERE id_producto = '{$this->idProducto}'";
-    $this->con->consultaSimple($sql);
+        $fActual = date("Y/m/d");    
+        $sql = "UPDATE producto set 
+        nombre = '{$this->nombre}', descripcion = '{$this->descripcion}', peso = '{$this->peso}',
+        proveedor = '{$this->proveedor}', cantidad_minima = '{$this->cantidadMinima}', cantidad_actual = '{$this->cantidadActual}',
+        ruta_imagen = '{$this->rutaImagen}', fecha_modificacion = '{$fActual}' 
+        WHERE id_producto = '{$this->idProducto}'";
+        $this->con->consultaSimple($sql);
     }//update
     
     public function delete(){

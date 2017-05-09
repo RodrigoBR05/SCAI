@@ -47,7 +47,7 @@ class Activo {
     
     public function update(){
          $sql = "UPDATE activo set numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
-          donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
+          ruta_imagen= '{$this->rutaImagen}',donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
           valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}',
           fecha_modificacion = '{$this->fechaModificacion}' WHERE id_activo = '$this->idActivo'";
          //print $sql;

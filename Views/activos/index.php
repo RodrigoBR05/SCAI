@@ -53,27 +53,27 @@ if (isset($_SESSION['admin'])) {
     <table class="display" id="tableUsuarios">
             <thead>
               <tr>
-                  <th>Codigo</th>
-                  <th>Número serie</th>
-                  <th>Nombre</th>
-                  <th>Departamento</th>
-                  <th>Valor adquisición</th>
-                  <th>Valor actual</th>
-                  <th>Acciones</th>
+                  <th class="center">Codigo</th>
+                  <th class="center">Número serie</th>
+                  <th class="center">Nombre</th>
+                  <th class="center">Departamento</th>
+                  <th class="center">Valor adquisición</th>
+                  <th class="center">Valor actual</th>
+                  <th class="center">Acciones</th>
               </tr>
             </thead>
 
             <tbody>
                 <?php
-                if (isset($datos)) {
+                if (!empty($datos)) {
                     while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
-                        <td><?php echo $row['codigo']; ?></td>
-                        <td><?php echo $row['numero_serie']; ?></td>
-                        <td><?php echo $row['nombre']; ?></td>
-                        <td><?php echo $row['ubicacion_departamento']; ?></td>
-                        <td><?php echo $row['valor_adquisicion']; ?></td>
-                        <td><?php echo $row['valor_actual']; ?></td>
+                        <td class="center"><?php echo $row['codigo']; ?></td>
+                        <td class="center"><?php echo $row['numero_serie']; ?></td>
+                        <td class="center"><?php echo $row['nombre']; ?></td>
+                        <td class="center"><?php echo $row['ubicacion_departamento']; ?></td>
+                        <td class="center"><?php echo $row['valor_adquisicion']; ?></td>
+                        <td class="center"><?php echo $row['valor_actual']; ?></td>
                         <td class="center">
                             <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>activos/read/<?php echo $row['id_activo']; ?>"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>activos/update/<?php echo $row['id_activo']; ?>">
@@ -89,6 +89,5 @@ if (isset($_SESSION['admin'])) {
         </div>
         
 </main>
-<?php    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 

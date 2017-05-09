@@ -7,7 +7,7 @@ if (isset($_SESSION['admin'])) {
 <header>
     <nav class="top-nav">
         <div class="container center">
-          <div class="nav-wrapper"><a class="page-title">Datos del usuario</a></div>
+          <div class="nav-wrapper"><a class="page-title">Detalles del usuario</a></div>
         </div>
     </nav>
 </header>
