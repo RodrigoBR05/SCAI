@@ -64,12 +64,9 @@ if (isset($_SESSION['admin'])) {
             </thead>
 
             <tbody>
-                
                 <?php
                 if (isset($datos)) {
-                
-                 ?>
-                <?php while($row = mysqli_fetch_array($datos)){ ?>
+                    while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
                         <td><?php echo $row['codigo']; ?></td>
                         <td><?php echo $row['numero_serie']; ?></td>

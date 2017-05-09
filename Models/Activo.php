@@ -16,13 +16,14 @@ class Activo {
     private $valorAdquisicion;
     private $valorActual;
     private $rutaImagen;
-    private $fecha_ingreso;
-    private $fecha_modificacion;
+    private $fechaIngreso;
+    private $fechaModificacion;
     private $con;
     
      public function __construct() {
         $this->con=new Conexion();
-        $this->fecha_modificacion= date("Y/m/d");
+        $this->fechaModificacion= date("Y/m/d");
+        $this->fechaIngreso = date("Y/m/d");
     }//ctor
     
      public function set($atributo, $contenido){
@@ -33,12 +34,12 @@ class Activo {
     }//get
     
     public function create(){
-        $fActual = date("Y/m/d");
+        $this->con->conectar();
         $sql = "INSERT INTO activo (id_usuario, codigo, numero_serie, nombre, descripcion, donado_por, ubicacion_departamento,
             valor_adquisicion, valor_actual, ruta_imagen, fecha_ingreso,fecha_modificacion)
                 VALUES ('{$this->idUsuario}', '{$this->codigo}', '{$this->numeroSerie}', '{$this->nombre}','{$this->descripcion}',
-                    '{$this->donadoPor}','{$this->ubicacionDepartamento}','{$this->valorAdquisicion}','{$this->valorAdquisicion}', 
-                    '{$this->rutaImagen}', '{$fActual}', '{$this->fecha_modificacion}')";
+                    '{$this->donadoPor}','{$this->ubicacionDepartamento}','{$this->valorAdquisicion}','{$this->valorActual}', 
+                    '{$this->rutaImagen}', '{$this->fechaIngreso}', '{$this->fechaModificacion}')";
         //print $sql;
         $this->con->consultaSimple($sql);
     }//create
@@ -47,7 +48,7 @@ class Activo {
          $sql = "UPDATE activo set numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
           donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
           valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}', ruta_imagen = '{$this->rutaImagen}',
-          fecha_modificacion = '{$this->fecha_modificacion}' WHERE codigo = '$this->codigo'";
+          fecha_modificacion = '{$this->fechaModificacion}' WHERE codigo = '$this->codigo'";
           $this->con->consultaSimple($sql);
     }//update
     
@@ -74,19 +75,21 @@ class Activo {
         //Obtiene las primeras 3 letras del departamento
         $cod = substr($this->ubicacionDepartamento,0,3);
         $num = 1;
-        $codigo="";
-        
-        $sql = "Select codigo from activo where codigo like"."''$cod'%' order by codigo desc limit 1";
+        $sql = "call sp_obtener_codigo('$this->ubicacionDepartamento')";
         $datos = $this->con->consultaRetorno($sql);
         $row = mysqli_fetch_array($datos);
+        //print_r($datos);
         
-        if (empty($row['codigo'])) {
+        if (empty($row)) {
             $codigo = $cod . $num;
+            //echo '***************************************************************Nuevooooo!!!!!!!';
         }
         else{
             $num = intval(substr($row['codigo'],3),10);
             $codigo = $cod . ($num+1);
+            //echo '***************************************************************otroooooo!!!!!!!'. "num: ". $num . $codigo;
         }
+       // mysqli_close($this->con);
         return $codigo;
     }//generarCodigo
     
