@@ -46,25 +46,27 @@ class Producto {
             VALUES ('{$this->idUsuario}','{$this->nombre}','{$this->descripcion}',
             '{$this->peso}', '{$this->proveedor}','{$this->cantidadMinima}','{$this->cantidadActual}',
             '{$this->rutaImagen}','{$fActual}', '{$fActual}')";
-              print $sql;
+              //print $sql;
              $this->con->consultaSimple($sql);
            
     }//create
     public function update(){
-    $sql = "UPDATE producto set id_producto = '{$this->idProducto}', id_usuario = '{$this->idUsuario}',
+    $fActual = date("Y/m/d");    
+    $sql = "UPDATE producto set 
     nombre = '{$this->nombre}', descripcion = '{$this->descripcion}', peso = '{$this->peso}',
     proveedor = '{$this->proveedor}', cantidad_minima = '{$this->cantidadMinima}', cantidad_actual = '{$this->cantidadActual}',
-    ruta_imagen = '{$this->rutaImagen}', fecha_ingreso = '{$this->fecha_ingreso}', fecha_modificacion = '{$this->fecha_modificacion}'";
+    ruta_imagen = '{$this->rutaImagen}', fecha_modificacion = '{$fActual}' 
+    WHERE id_producto = '{$this->idProducto}'";
     $this->con->consultaSimple($sql);
     }//update
     
     public function delete(){
-        $sql = "DELETE producto where id_producto = '$this->idProducto'";
+        $sql = "DELETE FROM producto where id_producto = '$this->idProducto'";
         $this->con->consultaSimple($sql);
     }//delete
     
     public function getProducto(){
-        $sql = "SELECT * FROM producto WHERE id_prodiucto = {$this->idProducto}";
+        $sql = "SELECT * FROM producto WHERE id_producto = '{$this->idProducto}'";
         $datos = $this->con->consultaRetorno($sql);
 	//Envia un array
 	$row = mysqli_fetch_assoc($datos);

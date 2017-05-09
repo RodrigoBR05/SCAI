@@ -73,9 +73,9 @@ if (isset($_SESSION['admin'])) {
                         <td><?php echo $row['cantidad_minima']; ?></td>
                         <td><?php echo $row['cantidad_actual']; ?></td>
                         <td class="center">
-                            <a class="btn-floating waves-effect waves-light green"><i class="material-icons">zoom_in</i></a>                       
-                            <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>usuarios/delete/<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="btn-floating waves-effect waves-light green " href="<?php echo URL; ?>productos/read/<?php echo $row['id_producto']; ?>" ><i class="material-icons">zoom_in</i></a>                       
+                            <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>productos/update/<?php echo $row['id_producto']; ?>"><i class="material-icons">build</i></a>                       
+                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>productos/delete/<?php echo $row['id_producto']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
                 <?php } ?>              

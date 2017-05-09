@@ -45,16 +45,37 @@ class ProductosController {
         
     //}//agregar
     
-    public function editar($id){
+    public function update($id){
+    if (!$_POST) {
+            $this->producto->set("idProducto", $id);
+            $datos = $this->producto->getProducto();
+            return $datos;
+        }
+        else {
+            $this->producto->set("idProducto", $id);
+            $this->producto->set("idUsuario", 3); //CAMBIAR****
+            $this->producto->set("nombre", $_POST['nombre']);
+            $this->producto->set("descripcion", $_POST['descripcion']);
+            $this->producto->set("peso", $_POST['peso']);
+            $this->producto->set("proveedor", $_POST['proveedor']);
+            $this->producto->set("cantidadMinima", $_POST['cantidadMinima']);
+            $this->producto->set("cantidadActual", $_POST['cantidadActual']);
+           
+            $this->producto->update();
+        }    
         
-    }//editar
+    }//update
     
-    public function ver($id){
-        
+    public function read($id){
+        $this->producto->set("idProducto", $id);
+        $datos = $this->producto->getProducto();
+        return $datos;
     }//ver
     
-    public function eliminar($id){
-        
+    public function delete($id){
+        $this->producto->set("idProducto", $id);
+        $this->producto->delete();
+        header('Location:' . URL . 'productos');
     }//eliminar
     
 }//class
