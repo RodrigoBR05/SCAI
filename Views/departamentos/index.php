@@ -57,7 +57,6 @@ if (isset($_SESSION['admin'])) {
                   <th class="center">Registrado/Modificado por</th>
                   <th class="center">Código</th>
                   <th class="center">Nombre</th>
-                  <th class="center">Descipción</th>
                   <th class="center">Acciones</th>
               </tr>
             </thead>
@@ -69,7 +68,6 @@ if (isset($_SESSION['admin'])) {
                         <td class="center"><?php echo $row['nombre_usuario']; ?></td>
                         <td class="center"><?php echo $row['codigo']; ?></td>
                         <td class="center"><?php echo $row['nombre']; ?></td>
-                        <td class="center"><?php echo $row['descripcion']; ?></td>
                         <td class="center">
                             <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>departamentos/read/<?php echo $row['id_departamento']; ?>"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>departamentos/update/<?php echo $row['id_departamento']; ?>"><i class="material-icons">build</i></a>                       

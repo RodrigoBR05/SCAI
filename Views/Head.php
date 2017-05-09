@@ -29,9 +29,8 @@
         $(".button-collapse").sideNav({
           menuWidth: 300
         });
-        $(document).ready(function() {
-          $('select').material_select();
-        });
+        $('.modal').modal();        
+        $('select').material_select();
       });
     </script>
   </head>
