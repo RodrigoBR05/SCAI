@@ -7,7 +7,7 @@ if (isset($_SESSION['admin'])) {
 <header>
     <nav class="top-nav">
         <div class="container center">
-          <div class="nav-wrapper"><a class="page-title">Departamento <?php echo $datos['nombre']; ?></a></div>
+          <div class="nav-wrapper"><a class="page-title">Datos del departamento</a></div>
         </div>
     </nav>
 </header>
@@ -52,5 +52,4 @@ if (isset($_SESSION['admin'])) {
     </div>
     </div>
 </main>
-<?php  include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>

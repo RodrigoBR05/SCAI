@@ -39,5 +39,4 @@ if (isset($_SESSION['admin'])) {
     </div>
     </div>
 </main>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>

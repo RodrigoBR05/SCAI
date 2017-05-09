@@ -8,7 +8,7 @@ if (isset($_SESSION['admin'])) {
 <header>
     <nav class="top-nav">
         <div class="container center">
-          <div class="nav-wrapper"><a class="page-title">Actualizar <?php echo $datos['nombre']; ?></a></div>
+          <div class="nav-wrapper"><a class="page-title">Actualizar departamento</a></div>
         </div>
     </nav>
 </header>
@@ -40,12 +40,11 @@ if (isset($_SESSION['admin'])) {
             </div>            
           </div>          
           <div class='row center'>
-             <button type='submit' name='btn_login' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Actualizar usuario</button>
+             <button type='submit' name='btn_login' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Actualizar departamento</button>
           </div>
            <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
     </div>
     </div>
 </main>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
