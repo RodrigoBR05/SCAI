@@ -52,7 +52,7 @@
               <li class="bold"><a class="collapsible-header  waves-effect waves-light white-text"><i class="material-icons left white-text">shopping_cart</i>INVENTARIO COMEDOR</a>
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar producto</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>productos/Create"><i class="material-icons left white-text">playlist_add</i>Agregar producto</a></li>
                     <li><a class="white-text" href="<?php echo URL; ?>productos"><i class="material-icons left white-text">list</i>Listado de productos</a></li>
                   </ul>
                 </div>

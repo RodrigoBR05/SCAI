@@ -41,13 +41,12 @@ class Producto {
     
     public function create() {
     $fActual = date("Y/m/d");
-    $sql = "INSERT INTO producto (id_producto, id_usuario, nombre, descripcion, peso, 
+    $sql = "INSERT INTO producto (id_usuario, nombre, descripcion, peso, 
             proveedor, cantidad_minima, cantidad_actual, ruta_imagen, fecha_ingreso, fecha_modificacion)
-            VALUES ('{$this->idProducto}','{$this->idUsuario}','{$this->nombre}','{$this->descripcion}',
+            VALUES ('{$this->idUsuario}','{$this->nombre}','{$this->descripcion}',
             '{$this->peso}', '{$this->proveedor}','{$this->cantidadMinima}','{$this->cantidadActual}',
-            '{$this->cantidadMinima}', {$this->cantidadActual},'{$this->rutaImagen}',
-            '{$this->fecha_ingreso}', '{$this->fecha_modificacion}')";
-            //print $sql;
+            '{$this->rutaImagen}','{$fActual}', '{$fActual}')";
+              print $sql;
              $this->con->consultaSimple($sql);
            
     }//create
