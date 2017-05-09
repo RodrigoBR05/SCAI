@@ -1,10 +1,5 @@
 <?php
-$contrasena = password_hash('micontraseña', PASSWORD_DEFAULT, [15]);
-echo $contrasena;
+$departamento = 'Segundo piso';
+$codigo = substr($departamento, 0, 3);
 
-if(password_verify('micontraseña2', $contrasena)){
-    // Password correcto!
-    echo "Sirve el método de encriptacion";
-}
-
-print (date("d/m/Y"));
+print (strtoupper ( $codigo.date("is")));

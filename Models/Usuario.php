@@ -71,7 +71,6 @@ class Usuario{
         . "telefono = '{$this->telefono}',puesto = '{$this->puesto}',"
         . "tipo_usuario= '{$this->tipo_usuario}',id_tipo_usuario = '{$this->id_tipo_usuario}',fecha_modificacion = '{$fModificacion}' "
         . "WHERE id_usuario = '{$this->id_usuario}'";
-        print "##########################################".$sql;
         $this->con->consultaSimple($sql);
     }
 

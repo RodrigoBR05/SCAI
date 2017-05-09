@@ -13,7 +13,7 @@
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
                     <li><a class="white-text" href="<?php echo URL; ?>usuarios/userInformation/<?php echo $_SESSION['admin']; ?>"><i class="material-icons left white-text">info_outline</i>Información personal</a></li>
-                    <li><a class="white-text" href="<?php echo URL; ?>usuarios/changePassword/<?php echo $_SESSION['admin']; ?>"><i class="material-icons left white-text">https</i>Inicio de sesión y seguridad</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>usuarios/changePassword/<?php echo $_SESSION['admin']; ?>"><i class="material-icons left white-text">https</i>Seguridad</a></li>
                   </ul>
                 </div>
 
@@ -32,8 +32,8 @@
               <li class="bold"><a class="collapsible-header waves-effect waves-light white-text"><i class="material-icons left white-text">home</i>DEPARTAMENTOS</a>
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar departamento</a></li>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de departamentos</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>departamentos/create"><i class="material-icons left white-text">playlist_add</i>Agregar departamento</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>departamentos"><i class="material-icons left white-text">list</i>Listado de departamentos</a></li>
                   </ul>
                 </div>
               </li>
@@ -53,7 +53,7 @@
                 <div class="collapsible-body light-blue darken-1">
                   <ul>
                     <li><a class="white-text" href="#"><i class="material-icons left white-text">playlist_add</i>Agregar producto</a></li>
-                    <li><a class="white-text" href="#"><i class="material-icons left white-text">list</i>Listado de productos</a></li>
+                    <li><a class="white-text" href="<?php echo URL; ?>productos"><i class="material-icons left white-text">list</i>Listado de productos</a></li>
                   </ul>
                 </div>
               </li>
@@ -62,10 +62,11 @@
               <li class="bold"><a class="collapsible-header waves-effect waves-light white-text"><i class="material-icons left white-text">power_settings_new</i>SALIR</a>
               </li>
               <li><div class="divider"></div></li>
-
             </ul>
           </li>
-
-      </ul>        
+          <div class="row center">
+              <p class="white-text">Copyright © 2017 Centro Diurno Paraíso</p>
+          </div>
+      </ul>
     </div>
   </header>

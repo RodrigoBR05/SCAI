@@ -70,7 +70,7 @@
                           <br />
                           <center>
                             <div class='row'>
-                              <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect blue darken-4'>Iniciar sesión</button>
+                              <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect blue darken-1'>Iniciar sesión</button>
                             </div>
                           </center>
                         </form>

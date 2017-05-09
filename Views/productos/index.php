@@ -1,4 +1,4 @@
-<?php  
+<?php
 session_start(); 
 if (!isset($_SESSION['admin'])) {
    $_SESSION['admin'] = $_GET['admin'];
@@ -36,7 +36,7 @@ if (isset($_SESSION['admin'])) {
 <header>
     <nav class="top-nav">
         <div class="container center">
-          <div class="nav-wrapper"><a class="page-title">Usuarios</a></div>
+          <div class="nav-wrapper"><a class="page-title">Productos</a></div>
         </div>
     </nav>
 </header>
@@ -50,31 +50,31 @@ if (isset($_SESSION['admin'])) {
     <div class="divider"></div>
     <div class="row responsive-table">       
     
-    <table class="display" id="tableUsuarios">
+    <table class="display" id="tableProductos">
             <thead>
               <tr>
-                  <th class="center">Id</th>
-                  <th class="center">Nombre</th>
-                  <th class="center">Apellidos</th>
-                  <th class="center">Email</th>
-                  <th class="center">Teléfono</th>
-                  <th class="center">Puesto</th>
-                  <th class="center">Acciones</th>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Peso</th>
+                  <th>Proveedor</th>
+                  <th>Cantidad Minima</th>
+                  <th>Cantidad Actual</th>
+                  <th>Acciones</th>
               </tr>
             </thead>
 
             <tbody>
                 <?php while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
-                        <td class="center"><?php echo $row['id_usuario']; ?></td>
-                        <td class="center"><?php echo $row['nombre']; ?></td>
-                        <td class="center"><?php echo $row['apellidos']; ?></td>
-                        <td class="center"><?php echo $row['email']; ?></td>
-                        <td class="center"><?php echo $row['telefono']; ?></td>
-                        <td class="center"><?php echo $row['puesto']; ?></td>
+                        <td><?php echo $row['nombre']; ?></td>
+                        <td><?php echo $row['descripcion']; ?></td>
+                        <td><?php echo $row['peso']; ?></td>
+                        <td><?php echo $row['proveedor']; ?></td>
+                        <td><?php echo $row['cantidad_minima']; ?></td>
+                        <td><?php echo $row['cantidad_actual']; ?></td>
                         <td class="center">
-                            <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>usuarios/read/<?php echo $row['id_usuario']; ?>"><i class="material-icons">zoom_in</i></a>                       
-                            <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>usuarios/update/<?php echo $row['id_usuario']; ?>"><i class="material-icons">build</i></a>                       
+                            <a class="btn-floating waves-effect waves-light green"><i class="material-icons">zoom_in</i></a>                       
+                            <a class="btn-floating waves-effect waves-light orange"><i class="material-icons">build</i></a>                       
                             <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>usuarios/delete/<?php echo $row['id_usuario']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
@@ -85,4 +85,7 @@ if (isset($_SESSION['admin'])) {
         </div>
         
 </main>
+<?php    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
+<!--index productos-->
+

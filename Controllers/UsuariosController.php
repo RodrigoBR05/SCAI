@@ -25,8 +25,6 @@
                  $this->usuario->set("clave", $_POST['password']);
                 $this->usuario->set("id_tipo_usuario", $_POST['id_tipo_usuario']);
                 $this->usuario->create();
-                //Página de listado de usuarios
-                header("Location: ".URL."usuarios");
             }            
         }
         
