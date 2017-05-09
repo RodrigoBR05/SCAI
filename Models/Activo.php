@@ -55,7 +55,7 @@ class Activo {
     }//update
     
     public function delete(){
-        $sql = "DELETE activo where id_activo = '$this->idActivo'";
+        $sql = "DELETE FROM activo where id_activo = '$this->idActivo'";
         $this->con->consultaSimple($sql);
     }//delete
     

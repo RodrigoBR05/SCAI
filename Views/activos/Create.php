@@ -16,7 +16,7 @@ if (isset($_SESSION['admin'])) {
 <main>
     <div class="container">
     <div class="row">
-        <form class="col s12" method="POST" enctype="multipart/form-data">
+        <form class="col s12" method="POST" id="agregar_form" enctype="multipart/form-data">
           <div class="row">
             <div class="input-field col s6">
               <input type='text' id="numSerie" name="numSerie" class="validate" required>
@@ -67,11 +67,22 @@ if (isset($_SESSION['admin'])) {
                 </div>
             </div>
             <div class='row center'>
-              <button type='submit' name='btn_reg_activo' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar activo</button>
+              <button data-target="modalAgregarActivo" name='btn_reg_activo' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar activo</button>
             </div>
         </form>
     </div>
     </div>
+    <!--MODAL DE CONFIRMACIÓN-->
+    <div id="modalAgregarActivo" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Agregar activo</h4>
+          <p>¿Desea agregar el activo?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" form="agregar_form" class="modal-action modal-close waves-light waves-green btn-flat black-text">Cancelar</button>
+            <button type="submit" form="agregar_form" class="modal-action modal-close waves-light waves-green btn-flat white-text blue darken-4">Aceptar</button>
+        </div>
+      </div>
 </main>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Footer.php';?>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>

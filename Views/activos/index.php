@@ -78,7 +78,7 @@ if (isset($_SESSION['admin'])) {
                             <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>activos/read/<?php echo $row['id_activo']; ?>"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>activos/update/<?php echo $row['id_activo']; ?>">
                                 <i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>activos/delete/<?php echo $row['id_activo']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
                 <?php }

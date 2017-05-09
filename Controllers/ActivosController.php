@@ -20,6 +20,7 @@ class ActivosController {
     
     public function create(){
         if($_POST){
+            print AutenticacionController::$idUsuario;
             $this->activo->set("idUsuario", 3); //CAMBIAR****
             $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
@@ -65,6 +66,7 @@ class ActivosController {
             $this->activo->set("valorAdquisicion", $_POST['valorAdquisicion']);
             $this->activo->set("valorActual", $_POST['valorActual']);
             $this->activo->update();
+            header('Location:'.URL.'activos');
         }
     }//update
     
@@ -75,7 +77,9 @@ class ActivosController {
     }//read
     
     public function delete($id){
-        
+        $this->activo->set("idActivo", $id);
+        $this->activo->delete();
+        header('Location:'.URL.'activos');
     }//delete
     
     
