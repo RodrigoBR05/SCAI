@@ -1,4 +1,5 @@
 <?php
+//phpinfo(); 
     session_start();
     $login = new Login();
 
