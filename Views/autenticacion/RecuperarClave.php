@@ -12,10 +12,10 @@
             <meta charset="UTF-8">
             <title>Recuperar clave</title>
             <!--Import Google Icon Font-->
-            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="<?php echo URL; ?>Views/assets/css/index.css" rel="stylesheet">
             <!--Import materialize.css-->
-            <link type="text/css" rel="stylesheet" href="Views/assets/css/materialize.css"  media="screen,projection"/>
-            <link type="text/css" rel="stylesheet" href="Views/assets/css/scaicss.css"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/assets/css/materialize.css"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/assets/css/scaicss.css"  media="screen,projection"/>
 
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
@@ -41,7 +41,7 @@
                             
                           <div class="row">
                             <div class="input-field col s12 center">
-                              <img src="Views/assets/img/logo.png" width="150" height="150" alt="" class="circle responsive-img">
+                              <img src="<?php echo URL; ?>Views/assets/img/logo.png" width="150" height="150" alt="" class="circle responsive-img">
                             </div>
                           </div>
                             
@@ -92,8 +92,8 @@
  ?>
         
         <!--Import jQuery before materialize.js-->
-            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-            <script type="text/javascript" src="Views/assets/js/materialize.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL; ?>Views/assets/js/jquery-2.1.1.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL; ?>Views/assets/js/materialize.min.js"></script>
           </body>
         </html>
  <?php
