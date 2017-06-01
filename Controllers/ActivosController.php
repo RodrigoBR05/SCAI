@@ -2,13 +2,16 @@
 
 namespace Controllers;
 use Models\Activo as Activo;
+use Models\Departamento as Departamento;
 
 class ActivosController {
     private $activo;
+    private $departamento;
     
     
     function __construct() {
         $this->activo = new Activo();
+        $this->departamento = new Departamento();
     }//ctor
     
     public function index() {
@@ -19,8 +22,11 @@ class ActivosController {
     
     
     public function create(){
-        if($_POST){
-            print AutenticacionController::$idUsuario;
+         if (!$_POST) {
+             return $this->getDepartamentos();
+        }
+        else{
+            //print AutenticacionController::$idUsuario;
             $this->activo->set("idUsuario", $_POST['id_usuario']);
             $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
@@ -54,9 +60,9 @@ class ActivosController {
             $datos = $this->activo->getActivo();
             return $datos;
         }
-        else {
+        else if ($_POST) {
             $this->activo->set("idActivo", $id);
-            $this->activo->set("idUsuario", 3); //CAMBIAR****
+            $this->activo->set("idUsuario", $_POST['id_usuario']);
             $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
             $this->activo->set("nombre", $_POST['nombre']);
@@ -95,8 +101,11 @@ class ActivosController {
         header('Location:'.URL.'activos');
     }//delete
     
-    
+    public function getDepartamentos(){
+        $datos = $this->departamento->toList();
+        return $datos;
+    }//getDepartamentos
 }//class
 
-    //$activos = new ActivosController();
+    $activos = new ActivosController();
 ?>

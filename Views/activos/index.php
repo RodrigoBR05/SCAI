@@ -53,7 +53,7 @@ if (isset($_SESSION['admin'])) {
     <table class="display" id="tableUsuarios">
             <thead>
               <tr>
-                  <th class="center">Codigo</th>
+                  <!--<th class="center">Codigo</th>-->
                   <th class="center">Número serie</th>
                   <th class="center">Nombre</th>
                   <th class="center">Departamento</th>
@@ -68,7 +68,7 @@ if (isset($_SESSION['admin'])) {
                 if (!empty($datos)) {
                     while($row = mysqli_fetch_array($datos)){ ?>
                     <tr>
-                        <td class="center"><?php echo $row['codigo']; ?></td>
+                        <!--<td class="center"><?php echo $row['codigo']; ?></td>-->
                         <td class="center"><?php echo $row['numero_serie']; ?></td>
                         <td class="center"><?php echo $row['nombre']; ?></td>
                         <td class="center"><?php echo $row['ubicacion_departamento']; ?></td>
@@ -78,7 +78,7 @@ if (isset($_SESSION['admin'])) {
                             <a class="btn-floating waves-effect waves-light green" href="<?php echo URL; ?>activos/read/<?php echo $row['id_activo']; ?>"><i class="material-icons">zoom_in</i></a>                       
                             <a class="btn-floating waves-effect waves-light orange" href="<?php echo URL; ?>activos/update/<?php echo $row['id_activo']; ?>">
                                 <i class="material-icons">build</i></a>                       
-                            <a class="btn_delete btn-floating waves-effect waves-light red" href="<?php echo URL; ?>activos/delete/<?php echo $row['id_activo']; ?>"><i class="material-icons">delete_forever</i></a>
+                            <a class="open-Modal btn_delete btn-floating waves-effect waves-light red" href="#modalEliminarActivo" data-id="<?php echo $row['id_activo']; ?>"><i class="material-icons">delete_forever</i></a>
                         </td>
                     </tr>
                 <?php }
@@ -87,7 +87,24 @@ if (isset($_SESSION['admin'])) {
             </tbody>
           </table>
         </div>
-        
+         <!--MODAL DE CONFIRMACIÓN-->
+       <div id="modalEliminarActivo" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Eliminar activo</h4>
+          <p>¿Desea eliminar el activo?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="reset" class="modal-action modal-close waves-light waves-green btn-flat black-text">Cancelar</button>
+            <a  href="" id="eliminar" class="modal-action modal-close waves-light waves-green btn-flat white-text blue darken-4">Aceptar</a>
+        </div>
+      </div>
 </main>
+
+<script>
+    $(document).on("click", ".open-Modal", function () {
+        var id = $(this).data('id');
+        document.getElementById( "eliminar" ).href = '<?php echo URL; ?>activos/delete/' + id;
+    });    
+</script>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 
