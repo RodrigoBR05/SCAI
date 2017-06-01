@@ -13,7 +13,7 @@
             <meta charset="UTF-8">
             <title>Sistema de Control de Activos e Inventario</title>
             <!--Import Google Icon Font-->
-            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="<?php echo URL; ?>Views/assets/css/index.css" rel="stylesheet">
             <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/assets/css/materialize.css"  media="screen,projection"/>
             <link type="text/css" rel="stylesheet" href="<?php echo URL; ?>Views/assets/css/scaicss.css"  media="screen,projection"/>
@@ -64,7 +64,7 @@
                               <label for='password' data-error="inválido" data-success="válido">Ingrese su contraseña</label>
                             </div>
                             <label style='float: right;'>
-                                <a class='orange-text' href='RecuperarClave.php'><b>He olvidado mi contraseña</b></a>
+                                <a class='orange-text' href='<?php echo URL; ?>autenticacion/recuperarClave'><b>He olvidado mi contraseña</b></a>
                             </label>
                           </div>
 
@@ -87,7 +87,7 @@
  ?>
         
         <!--Import jQuery before materialize.js-->
-            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script type="text/javascript" src="<?php echo URL; ?>Views/assets/js/jquery-2.1.1.min.js"></script>
             <script type="text/javascript" src="<?php echo URL; ?>Views/assets/js/materialize.min.js"></script>
           </body>
         </html>

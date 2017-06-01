@@ -29,6 +29,20 @@
             $datos = $this->autenticacion->login($usuario,$clave);            
             return $datos;            
         }
+        
+        public function recuperarClave(){
+            if ($_POST) {                
+                $usuario = (isset($_POST['usuario']) ? $_POST['usuario'] : '');
+                $verificarUser=$this->login($_POST['usuario'],$_POST['password']);
+                if($verificarUser){
+                    if ($verificarUser['id_tipo_usuario'] == 1) {
+                        header('Location: '.URL.'usuarios?admin='.$verificarUser['id_usuario']);
+                        AutenticacionController::$idUsuario = $verificarUser['id_usuario'];
+                    }
+                    
+                }
+            }
+        }//index
 
     }
 ?>
