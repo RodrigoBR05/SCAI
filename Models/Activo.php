@@ -46,7 +46,7 @@ class Activo {
     }//create
     
     public function update(){
-         $sql = "UPDATE activo set numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
+         $sql = "UPDATE activo set id_usuario = '{$this->idUsuario}' , numero_serie = '{$this->numeroSerie}', nombre = '{$this->nombre}', descripcion = '{$this->descripcion}',
           ruta_imagen= '{$this->rutaImagen}',donado_por = '{$this->donadoPor}', ubicacion_departamento = '{$this->ubicacionDepartamento}', 
           valor_adquisicion = '{$this->valorAdquisicion}', valor_actual = '{$this->valorActual}',
           fecha_modificacion = '{$this->fechaModificacion}' WHERE id_activo = '$this->idActivo'";
@@ -60,7 +60,8 @@ class Activo {
     }//delete
     
     public function getActivo(){
-        $sql = "SELECT * FROM activo WHERE id_activo = '{$this->idActivo}'";
+        $sql = "SELECT t1.*, t2.nombre as nombre_usuario, t2.apellidos FROM activo t1 "
+                . "INNER JOIN usuario t2 ON t1.id_usuario = t2.id_usuario WHERE id_activo = '{$this->idActivo}'";
         $datos = $this->con->consultaRetorno($sql);
 	//Envia un array
 	$row = mysqli_fetch_assoc($datos);
@@ -99,5 +100,6 @@ class Activo {
         //Por mientras se va a manejar el mismo valor
         //que el de adquisicion
     }//calcularValorDepreciacion
+    
 }//class
 ?>

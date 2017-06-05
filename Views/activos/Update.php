@@ -1,4 +1,5 @@
 <?php
+$departamentos = $activos->getDepartamentos();
 session_start(); 
 if (isset($_SESSION['admin'])) {
     include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
@@ -38,11 +39,18 @@ if (isset($_SESSION['admin'])) {
             </div>
               <div class="input-field col s6">                 
                  <select class="browser-default" name="departamento" required>
-                  <option value="" disabled selected>Seleccione el departamento</option>
-                  <option value="OFICINA" <?php if($datos['ubicacion_departamento'] == "OFICINA"){?> selected="selected" <?php }?>>Oficina</option>
-                  <option value="FISIOTERAPIA" <?php if($datos['ubicacion_departamento'] == "FISIOTERAPIA"){?> selected="selected" <?php }?>>Sala de fisioterapia</option>
-                  <option value="COMEDOR" <?php if($datos['ubicacion_departamento'] == "COMEDOR"){?> selected="selected" <?php }?>>Sala de comedor</option>
-                  <option value="TELEVISIÓN" <?php if($datos['ubicacion_departamento'] == "TELEVISION"){?> selected="selected" <?php }?>>Sala de televisión</option>
+                 <?php
+                            if (!empty($departamentos)) {
+                                while($departamento = mysqli_fetch_array($departamentos)){ ?>
+                                    ?>
+                  <option value="<?php echo $departamento['nombre'];?>"
+                      <?php if($datos['ubicacion_departamento'] == $departamento['nombre']){?> selected="selected" <?php }?>>
+                      <?php echo $departamento['nombre'];?> 
+                      </option>
+                   <?php
+                                }
+                            }
+                            ?>
                 </select>
           </div>
           </div>       
@@ -59,7 +67,7 @@ if (isset($_SESSION['admin'])) {
             </div>            
           </div>
           <div class="row center">
-            <img src="<?php echo URL.$datos['ruta_imagen']; ?>" alt="Activo" width="150" height="150" alt="" class="circle responsive-img">
+            <img src="<?php echo URL.$datos['ruta_imagen']; ?>" width="150" height="150" alt="" class="circle responsive-img">
           </div>
             <div class="row">       
             <div class="input-field col s6">
@@ -74,6 +82,7 @@ if (isset($_SESSION['admin'])) {
             <div class='row center'>
               <button data-target="modalActualizarActivo" name='btn_act_activo' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Actualizar activo</button>
             </div>
+             <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
     </div>
     </div>

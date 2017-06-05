@@ -1,4 +1,5 @@
 <?php
+$departamentos = $activos->getDepartamentos();
 session_start(); 
 if (isset($_SESSION['admin'])) {
     include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
@@ -38,12 +39,19 @@ if (isset($_SESSION['admin'])) {
             </div>
               <div class="input-field col s6">                 
                  <select class="browser-default" name="departamento" readonly="">
-                  <option value="" disabled selected>Seleccione el departamento</option>
-                  <option value="OFICINA" <?php if($datos['ubicacion_departamento'] == "OFICINA"){?> selected="selected" <?php }?>>Oficina</option>
-                  <option value="FISIOTERAPIA" <?php if($datos['ubicacion_departamento'] == "FISIOTERAPIA"){?> selected="selected" <?php }?>>Sala de fisioterapia</option>
-                  <option value="COMEDOR" <?php if($datos['ubicacion_departamento'] == "COMEDOR"){?> selected="selected" <?php }?>>Sala de comedor</option>
-                  <option value="TELEVISIÓN" <?php if($datos['ubicacion_departamento'] == "TELEVISION"){?> selected="selected" <?php }?>>Sala de televisión</option>
-                </select>
+                <?php
+                            if (!empty($departamentos)) {
+                                while($departamento = mysqli_fetch_array($departamentos)){ ?>
+                                    ?>
+                  <option value="<?php echo $departamento['nombre'];?>"
+                      <?php if($datos['ubicacion_departamento'] == $departamento['nombre']){?> selected="selected" <?php }?>>
+                      <?php echo $departamento['nombre'];?> 
+                      </option>
+                   <?php
+                                }
+                            }
+                            ?>
+                 </select>
           </div>
           </div>       
             <div class="row">
@@ -59,9 +67,24 @@ if (isset($_SESSION['admin'])) {
             </div>            
           </div>
           <div class="row center">
-                <img src="<?php echo URL.$datos['ruta_imagen']; ?>" alt="Activo" width="150" height="150" alt="" class="circle responsive-img">
+                <img src="<?php echo URL.$datos['ruta_imagen']; ?>" width="150" height="150" alt="" class="circle responsive-img">
           </div>
-            
+            <div class="row">
+            <div class="input-field col s12">
+              <input disabled  type='text' value="<?php echo $datos['nombre_usuario']." ".$datos['apellidos']; ?>" id="puesto" name="puesto" class="validate black-text" required>
+              <label class="grey-text text-darken-3" for="puesto" data-error="inválido" data-success="válido">Registrado/Modificado por</label>
+            </div>            
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input disabled  type='text' value="<?php echo $datos['fecha_ingreso']; ?>" id="fecha_ingreso" name="fecha_ingreso" class="validate black-text" required>
+              <label class="grey-text text-darken-3" for="fecha_ingreso" data-error="inválido" data-success="válido">Fecha ingreso</label>
+            </div>
+            <div class="input-field col s6">
+              <input disabled  type='text' value="<?php echo $datos['fecha_modificacion']; ?>" id="fecha_modificacion" name="fecha_modificacion" class="validate black-text" required>
+              <label class="grey-text text-darken-3" for="fecha_modificacion" data-error="inválido" data-success="válido">Fecha modificación</label>
+            </div>             
+          </div>
         </form>
     </div>
     </div>

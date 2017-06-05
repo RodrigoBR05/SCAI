@@ -39,10 +39,16 @@ if (isset($_SESSION['admin'])) {
               <div class="input-field col s6">                 
                  <select class="browser-default" name="departamento" required>
                   <option value="" disabled selected>Seleccione el departamento</option>
-                  <option value="OFICINA">Oficina</option>
-                  <option value="FISIOTERAPIA">Sala de fisioterapia</option>
-                  <option value="COMEDOR">Sala de comedor</option>
-                  <option value="TELEVISIÓN">Sala de televisión</option>
+                  
+                  <?php
+                            if (!empty($datos)) {
+                                while($departamento = mysqli_fetch_array($datos)){ ?>
+                                    ?>
+                  <option value="<?php echo $departamento['nombre'];?>"><?php echo $departamento['nombre'];?></option>
+                   <?php
+                                }
+                            }
+                            ?>
                 </select>
           </div>
           </div>       
@@ -71,6 +77,7 @@ if (isset($_SESSION['admin'])) {
             </div>
             <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
+     
     </div>
     </div>
     <!--MODAL DE CONFIRMACIÓN-->
