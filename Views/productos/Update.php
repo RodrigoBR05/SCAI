@@ -1,4 +1,5 @@
 <?php
+ 
 
 /* 
  productos
@@ -49,7 +50,7 @@ if (isset($_SESSION['admin'])) {
                 <option value="KILOGRAMOS">Kilogramos</option>
                 <option value="GRAMOS">Gramos</option>
                 <option value="LITROS">Litros</option>
-                <option value="GALONES">Galones</option>
+                <option value="GALONES">Galones</option>             
               </select>
             </div>   
           </div>       
@@ -65,8 +66,21 @@ if (isset($_SESSION['admin'])) {
               <label for="cantidadActual" data-error="inválido" data-success="válido">Cantidad actual</label>
             </div>            
           </div>
+          
+          <div class="row">
+            <div class="input-field col s6">
+                <input type="number" id="agregarCantidad" name="agregarCantidad" class="validate" required>
+              <label for="agregarCantidad" data-error="inválido" data-success="válido">Agregar cantidad productos</label>
+            </div>            
+            <div class="input-field col s6">
+                <input type="number" id="descontarCantidad" name="descontarCantidad" class="validate" required>
+              <label for="descontarCantidad" data-error="inválido" data-success="válido">Descontar cantidad productos</label>
+            </div>            
+          </div>  
+            
+            
           <div class="row center">
-            <img src="<?php echo URL.$datos['ruta_imagen']; ?>" alt="Activo" width="150" height="150" alt="" class="circle responsive-img">
+            <img src="<?php echo URL.$datos['ruta_imagen']; ?>" width="150" height="150" alt="" class="circle responsive-img">
           </div>
             <div class="row">       
             <div class="input-field col s6">

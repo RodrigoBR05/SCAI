@@ -20,6 +20,7 @@ class ProductosController {
             $this->producto->set("nombre", $_POST['nombre']);
             $this->producto->set("descripcion", $_POST['descripcion']);
             $this->producto->set("peso", $_POST['peso']);
+            $this->producto->set ("tipoPeso", $_POST['tipoPeso']);
             $this->producto->set("proveedor", $_POST['proveedor']);
             $this->producto->set("cantidadMinima", $_POST['cantidadMinima']);
             $this->producto->set("cantidadActual", $_POST['cantidadActual']);
@@ -35,7 +36,7 @@ class ProductosController {
                 $this->producto->set("rutaImagen", $ruta); 
             }
             $this->producto->create();
-            header('Location:'.URL.'productos');
+            header('Location:'.URL.'productos/Create');
         }//POST
         
     }//create
@@ -52,13 +53,16 @@ class ProductosController {
         }
         else {
             $this->producto->set("idProducto", $id);
-            $this->producto->set("idUsuario", 3); //CAMBIAR****
+            $this->producto->set("idUsuario", $_POST['id_usuario']);
             $this->producto->set("nombre", $_POST['nombre']);
             $this->producto->set("descripcion", $_POST['descripcion']);
             $this->producto->set("peso", $_POST['peso']);
+            $this->producto->set ("tipoPeso", $_POST['tipoPeso']);
             $this->producto->set("proveedor", $_POST['proveedor']);
             $this->producto->set("cantidadMinima", $_POST['cantidadMinima']);
             $this->producto->set("cantidadActual", $_POST['cantidadActual']);
+            
+           
             //Para guardar la imagen
             $permitidos = array("image/jpeg", "image/png", "image/gif", "image/jpg");
             $limite = 700;
@@ -85,6 +89,10 @@ class ProductosController {
         $this->producto->delete();
         header('Location:' . URL . 'productos');
     }//eliminar
+    
+    
+    
+    
     
 }//class
 
