@@ -106,18 +106,17 @@ class ActivosController {
         $this->activo->set("idActivo", $id);
         
         //borrar imagen del servidor
-        $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));
-           
-        if(unlink($rutaImagen['ruta_imagen'])){
-            echo '*************************************************BORRADO EXITOSO';
-        }
-        else{
-             echo '*************************************************ERROR';
-        }
+        $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));   
+        unlink($rutaImagen['ruta_imagen']);
         
         $this->activo->delete();
         header('Location:'.URL.'activos');
     }//delete
+    
+     public function excel(){
+          $datos = $this->activo->getActivos();
+        return $datos;
+    }//read
     
     public function getDepartamentos(){
         $datos = $this->departamento->toList();
