@@ -57,7 +57,7 @@ if (isset($_SESSION['admin'])) {
             </div>            
           </div>
           <div class="row center">
-                <img src="<?php echo URL.$datos['ruta_imagen']; ?>" alt="Activo" width="150" height="150" alt="" class="circle responsive-img">
+                <img src="<?php echo URL.$datos['ruta_imagen']; ?>" width="150" height="150" alt="" class="circle responsive-img">
           </div>
         </form>
     </div>

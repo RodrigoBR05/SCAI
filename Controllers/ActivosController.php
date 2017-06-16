@@ -28,7 +28,6 @@ class ActivosController {
         else{
             //print AutenticacionController::$idUsuario;
             $this->activo->set("idUsuario", $_POST['id_usuario']);
-            $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
             $this->activo->set("nombre", $_POST['nombre']);
             $this->activo->set("descripcion", $_POST['descripcion']);
@@ -64,7 +63,6 @@ class ActivosController {
         else if ($_POST) {
             $this->activo->set("idActivo", $id);
             $this->activo->set("idUsuario", $_POST['id_usuario']);
-            $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
             $this->activo->set("nombre", $_POST['nombre']);
             $this->activo->set("descripcion", $_POST['descripcion']);
