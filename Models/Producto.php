@@ -27,6 +27,10 @@ class Producto {
     private $rutaImagen;
     private $fechaIngreso;
     private $fechaModificacion;
+    //variables para hacer la suma
+    
+    private $agregarCantidad;
+    private $descontarCantidad;
     
     public function __construct() {
      $this->con=new Conexion();
@@ -54,10 +58,10 @@ class Producto {
     }//create
     public function update(){
         $fActual = date("Y/m/d");    
-        $sql = "UPDATE producto set 
+        $sql = "UPDATE producto set id_usuario = '{$this->idUsuario}',
         nombre = '{$this->nombre}', descripcion = '{$this->descripcion}', peso = '{$this->peso}', tipo_peso= '{$this->tipoPeso}',
         proveedor = '{$this->proveedor}', cantidad_minima = '{$this->cantidadMinima}', cantidad_actual = '{$this->cantidadActual}',
-        ruta_imagen = '{$this->rutaImagen}', fecha_modificacion = '{$this->fecha_modificacion}' 
+        ruta_imagen = '{$this->rutaImagen}', fecha_modificacion = '{$this->fechaModificacion}' 
         WHERE id_producto = '{$this->idProducto}'";
         $this->con->consultaSimple($sql);
     }//update
@@ -81,4 +85,27 @@ class Producto {
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }////getProductos
+    
+    public function getRutaImagen($id){
+        $sql = "SELECT ruta_imagen FROM producto where id_producto = '$id'";
+        $ruta = $this->con->consultaRetorno($sql);    
+        return $ruta; 
+    }//getRutaImagen
+    
+    public function getCantidadActual($id){
+    $sql = "Select cantidad_actual FROM producto where id_producto = '$id'";
+    //$sql = "Select CAST cantidad_actual FROM producto where id_producto = '$id'";
+    //print $sql;
+    $datos = $this->con->consultaRetorno($sql);
+    $resultado = mysqli_fetch_array($datos);
+    //$row = mysqli_fetch_assoc($datos);
+    //return (int) $row;
+    //$cantActual = (int)$datos;
+    $prueba = intval($resultado['cantidad_actual'], 10);
+    echo "********************************************************************************". $prueba;
+    return intval($resultado['cantidad_actual'], 10);
+    //return $cantActual;
+   
+    
+}
 }

@@ -50,6 +50,7 @@ class ActivosController {
                 //echo '************************************************************************'. $nombre;
             }
             $this->activo->create();
+            header('Location:'.URL.'activos/Create');
         }//POST
         
     }//create
@@ -71,21 +72,27 @@ class ActivosController {
             $this->activo->set("ubicacionDepartamento", $_POST['departamento']);
             $this->activo->set("valorAdquisicion", $_POST['valorAdquisicion']);
             $this->activo->set("valorActual", $_POST['valorActual']);
+            
+            
             //Para guardar la imagen
             $permitidos = array("image/jpeg", "image/png", "image/gif", "image/jpg");
             $limite = 700;
             $ruta ="";
            
             if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite * 1024) {
-                //echo '********************************************************************AQUIII';
+
+                //borrar imagen del servidor
+                $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));
+                unlink($rutaImagen['ruta_imagen']);
+                   
                 $nombre = date('is') . $_FILES['imagen']['name'];
-                $ruta = "Views" . "/" . "activos" . "/" . "imagenes" ."/" . $nombre;
+                $ruta = "Views" . "/" . "activos" . "/" . "imagenes" . "/" . $nombre;
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
-                $this->activo->set("rutaImagen", $ruta); 
-                //echo '************************************************************************'. $nombre;
+                $this->activo->set("rutaImagen", $ruta);
             }
             $this->activo->update();
             header('Location:'.URL.'activos');
+            
         }
     }//update
     
@@ -97,6 +104,17 @@ class ActivosController {
     
     public function delete($id){
         $this->activo->set("idActivo", $id);
+        
+        //borrar imagen del servidor
+        $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));
+           
+        if(unlink($rutaImagen['ruta_imagen'])){
+            echo '*************************************************BORRADO EXITOSO';
+        }
+        else{
+             echo '*************************************************ERROR';
+        }
+        
         $this->activo->delete();
         header('Location:'.URL.'activos');
     }//delete

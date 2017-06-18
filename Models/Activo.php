@@ -101,5 +101,11 @@ class Activo {
         //que el de adquisicion
     }//calcularValorDepreciacion
     
+    public function getRutaImagen($id){
+        $sql = "SELECT ruta_imagen FROM activo where id_activo = '$id'";
+        $ruta = $this->con->consultaRetorno($sql);    
+        return $ruta; 
+    }//getRutaImagen
+    
 }//class
 ?>

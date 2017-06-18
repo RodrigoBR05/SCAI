@@ -57,12 +57,12 @@ if (isset($_SESSION['admin'])) {
             <div class="row">
             <div class="input-field col s6">
                 <input type="number" id="cantidadMinima" name="cantidadMinima" class="validate" 
-                       value="<?php echo $datos['cantidad_minima']; ?>" required>
+                       value="<?php echo $datos['cantidad_minima']; ?>" required readonly="readonly">
               <label for="cantidadMinima" data-error="inválido" data-success="válido">Cantidad Mínima</label>
             </div>            
             <div class="input-field col s6">
                 <input type="number" id="cantidadActual" name="cantidadActual" class="validate"  
-                       value="<?php echo $datos['cantidad_actual']; ?>" required>
+                       value="<?php echo $datos['cantidad_actual']; ?>" required readonly="readonly">
               <label for="cantidadActual" data-error="inválido" data-success="válido">Cantidad actual</label>
             </div>            
           </div>
@@ -95,6 +95,7 @@ if (isset($_SESSION['admin'])) {
             <div class='row center'>
               <button data-target="modalActualizarProducto" name='btn_reg_producto' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Actualizar producto</button>
             </div>
+            <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
     </div>
     </div>

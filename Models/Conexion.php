@@ -16,6 +16,7 @@ class Conexion{
 	"host" => "localhost",
 	"user" => "root",
 	"pass" => "rocio",
+	//"pass" => "",
 	"db" => "scai"
     );
     
