@@ -50,7 +50,6 @@
     
     public function logout() {
         header('Location: '.URL.'autenticacion');
-
     }
 
     }
