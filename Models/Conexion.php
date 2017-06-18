@@ -15,8 +15,8 @@ class Conexion{
     private $datos = array(
 	"host" => "localhost",
 	"user" => "root",
-	"pass" => "rocio",
-	//"pass" => "",
+	//"pass" => "rocio",
+	"pass" => "",
 	"db" => "scai"
     );
     

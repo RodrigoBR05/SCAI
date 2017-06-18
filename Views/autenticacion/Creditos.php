@@ -24,22 +24,51 @@ if (isset($_SESSION['admin'],$_SESSION['tipo'])) {
     </nav>
 </header>
 
-    <main>
+    <main>                
+        <h4 class="center">Acerca de            
+        </h4>
         <div class="container">
-            <div class="row">
-                <form class="col s12 background light-blue" id="agregar_form">
-                    <h5 class="bold">Acerca De</h5>    
-                        <p class="black-text background light-blue"> El Sistema de Control de Activos e Inventarios (SCAI) fue desarrollado como parte de un proyecto 
-                            de la carrera Informática Empresarial del Recinto de Paraíso de la Universidad de Costa Rica. Agradecemos al Centro
-                            Diruno de Paraíso por confiar en nosotros y brindarnos el espacio.</p>
-                        <h6 class="black-text bold">Desarrollado por:</h6>
-                        <h6 class="black-text bold">Rodrigo Brenes Ramírez</h6>
-                        <h6 class="black-text bold">Melvin Marín Navarro</h6>
-                        <h6 class="black-text bold">Rocío Oconitrillo Segura</h6>
-
-                        <P class="black-text background light-blue"></P>       
-                </form>
-            </div>
+         <p class="black-text"> El Sistema de Control de Activos e Inventarios (SCAI) fue desarrollado como parte de un proyecto 
+                    de la carrera Informática Empresarial del Recinto de Paraíso de la Universidad de Costa Rica. Agradecemos al Centro
+                    Diurno de Paraíso por confiar en nosotros y brindarnos el espacio.</p>
         </div>
+
+        <div class="row">
+
+        <!--GRID-->
+        <div class="col s12 m4">
+
+          <div class="card-panel light-blue darken-1">
+            <div class="col s6">
+              <img src="<?php echo URL; ?>Views/assets/img/hombre.png" alt="foto de perfil" class="responsive-img circle">
+            </div>
+            <span class="white-text">Rodrigo Brenes R.</span>
+            <p class="white-text">Estudiante de informática empresarial, UCR</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card-panel light-blue darken-1">
+            <div class="col s6">
+              <img src="<?php echo URL; ?>Views/assets/img/mujer.png" alt="foto de perfil" class="responsive-img circle">
+            </div>
+            <span class="white-text">Rocío Oconitrillo S.</span>
+            <p class="white-text">Estudiante de informática empresarial, UCR</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card-panel light-blue darken-1">
+            <div class="col s6">
+              <img src="<?php echo URL; ?>Views/assets/img/hombre.png" alt="foto de perfil" class="responsive-img circle">
+            </div>
+            <span class="white-text">Melvin Marín N.</span>
+            <p class="white-text">Estudiante de informática empresarial, UCR</p>
+          </div>
+        </div>
+
+        </div>
+
+    </main>
 <?php }else{ header('Location: '.URL.'autenticacion');}?>
 

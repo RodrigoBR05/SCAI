@@ -27,6 +27,25 @@ class Autenticacion{
         }
         return NULL;
     }       
+    
+    public function verificarUsuario($usuario,$email){
+        $sql = "SELECT * FROM usuario WHERE usuario = '{$usuario}'";
+        $datos = $this->con->consultaRetorno($sql);
+        $row = mysqli_fetch_array($datos);
+        $emailUsuario = $row['email'];
+        if(strcasecmp ($email , $emailUsuario)==0){
+            return $row;
+        }
+        return NULL;
+    }
+    
+    public function nuevaClave($usuario,$email,$nuevaClave){
+        $fModificacion = date("Y/m/d");
+        $encriptacionClave = password_hash($nuevaClave, PASSWORD_DEFAULT, [15]);
+        $sql = "UPDATE usuario SET clave = '{$encriptacionClave}', fecha_modificacion = '{$fModificacion}' "
+        . "WHERE usuario = '{$usuario}'";                    
+        $this->con->consultaSimple($sql);
+    }
 }
 ?>
 
