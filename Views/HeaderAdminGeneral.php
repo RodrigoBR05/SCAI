@@ -60,7 +60,7 @@
               
               <li><div class="divider"></div></li>
 
-              <li class="bold"><a class="collapsible-header waves-effect waves-light white-text" href="<?php echo URL; ?>autenticacion/Creditos"><i class="material-icons left white-text">info_outline</i>ACERDA DE</a>
+              <li class="bold"><a class="collapsible-header waves-effect waves-light white-text" href="<?php echo URL; ?>autenticacion/Creditos"><i class="material-icons left white-text">info_outline</i>ACERCA DE</a>
               </li>
               
               <li><div class="divider"></div></li>
