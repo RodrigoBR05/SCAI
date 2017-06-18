@@ -1,4 +1,5 @@
 <?php
+ 
 
 /* 
  productos
@@ -59,22 +60,35 @@ if (isset($_SESSION['admin'],$_SESSION['tipo'])) {
                 <option value="KILOGRAMOS">Kilogramos</option>
                 <option value="GRAMOS">Gramos</option>
                 <option value="LITROS">Litros</option>
-                <option value="GALONES">Galones</option>
+                <option value="GALONES">Galones</option>             
               </select>
             </div>   
           </div>       
             <div class="row">
             <div class="input-field col s6">
                 <input type="number" id="cantidadMinima" name="cantidadMinima" class="validate" 
-                       value="<?php echo $datos['cantidad_minima']; ?>" required>
+                       value="<?php echo $datos['cantidad_minima']; ?>" required readonly="readonly">
               <label for="cantidadMinima" data-error="inválido" data-success="válido">Cantidad Mínima</label>
             </div>            
             <div class="input-field col s6">
                 <input type="number" id="cantidadActual" name="cantidadActual" class="validate"  
-                       value="<?php echo $datos['cantidad_actual']; ?>" required>
+                       value="<?php echo $datos['cantidad_actual']; ?>" required readonly="readonly">
               <label for="cantidadActual" data-error="inválido" data-success="válido">Cantidad actual</label>
             </div>            
           </div>
+          
+          <div class="row">
+            <div class="input-field col s6">
+                <input type="number" id="agregarCantidad" name="agregarCantidad" class="validate" required>
+              <label for="agregarCantidad" data-error="inválido" data-success="válido">Agregar cantidad productos</label>
+            </div>            
+            <div class="input-field col s6">
+                <input type="number" id="descontarCantidad" name="descontarCantidad" class="validate" required>
+              <label for="descontarCantidad" data-error="inválido" data-success="válido">Descontar cantidad productos</label>
+            </div>            
+          </div>  
+            
+            
           <div class="row center">
             <img src="<?php echo URL.$datos['ruta_imagen']; ?>" width="150" height="150" alt="" class="circle responsive-img">
           </div>
@@ -91,6 +105,7 @@ if (isset($_SESSION['admin'],$_SESSION['tipo'])) {
             <div class='row center'>
               <button data-target="modalActualizarProducto" name='btn_reg_producto' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Actualizar producto</button>
             </div>
+            <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>
     </div>
     </div>
