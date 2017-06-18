@@ -65,7 +65,7 @@
               
               <li><div class="divider"></div></li>
 
-              <li class="bold"><a class="collapsible-header waves-effect waves-light white-text"><i class="material-icons left white-text">power_settings_new</i>CERRAR SESIÓN</a>
+              <li class="bold"><a class="collapsible-header waves-effect waves-light white-text" href="<?php echo URL; ?>autenticacion/Logout"><i class="material-icons left white-text">power_settings_new</i>CERRAR SESIÓN</a>
               </li>
               <li><div class="divider"></div></li>
             </ul>
