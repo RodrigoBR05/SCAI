@@ -28,7 +28,6 @@ class ActivosController {
         else{
             //print AutenticacionController::$idUsuario;
             $this->activo->set("idUsuario", $_POST['id_usuario']);
-            $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
             $this->activo->set("nombre", $_POST['nombre']);
             $this->activo->set("descripcion", $_POST['descripcion']);
@@ -64,7 +63,6 @@ class ActivosController {
         else if ($_POST) {
             $this->activo->set("idActivo", $id);
             $this->activo->set("idUsuario", $_POST['id_usuario']);
-            $this->activo->set("codigo", "COM1"); //CAMBIAR****
             $this->activo->set("numeroSerie", $_POST['numSerie']);
             $this->activo->set("nombre", $_POST['nombre']);
             $this->activo->set("descripcion", $_POST['descripcion']);
@@ -106,18 +104,17 @@ class ActivosController {
         $this->activo->set("idActivo", $id);
         
         //borrar imagen del servidor
-        $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));
-           
-        if(unlink($rutaImagen['ruta_imagen'])){
-            echo '*************************************************BORRADO EXITOSO';
-        }
-        else{
-             echo '*************************************************ERROR';
-        }
+        $rutaImagen = mysqli_fetch_array($this->activo->getRutaImagen($id));   
+        unlink($rutaImagen['ruta_imagen']);
         
         $this->activo->delete();
         header('Location:'.URL.'activos');
     }//delete
+    
+     public function excel(){
+          $datos = $this->activo->getActivos();
+        return $datos;
+    }//excel
     
     public function getDepartamentos(){
         $datos = $this->departamento->toList();

@@ -8,7 +8,6 @@ class Activo {
     
     private $idActivo;
     private $idUsuario;
-    private $codigo;
     private $numeroSerie;
     private $nombre;
     private $descripcion;
@@ -36,11 +35,11 @@ class Activo {
     
     public function create(){
         $this->con->conectar();
-        $sql = "INSERT INTO activo (id_usuario, codigo, numero_serie, nombre, descripcion, donado_por, ubicacion_departamento,
-            valor_adquisicion, valor_actual, ruta_imagen, fecha_ingreso,fecha_modificacion)
-                VALUES ('{$this->idUsuario}', '{$this->codigo}', '{$this->numeroSerie}', '{$this->nombre}','{$this->descripcion}',
+        $sql = "INSERT INTO activo (id_usuario, numero_serie, nombre, descripcion, donado_por, ubicacion_departamento,
+            valor_adquisicion, valor_actual, ruta_imagen, fecha_ingreso)
+                VALUES ('{$this->idUsuario}', '{$this->numeroSerie}', '{$this->nombre}','{$this->descripcion}',
                     '{$this->donadoPor}','{$this->ubicacionDepartamento}','{$this->valorAdquisicion}','{$this->valorActual}', 
-                    '{$this->rutaImagen}', '{$this->fechaIngreso}', '{$this->fechaModificacion}')";
+                    '{$this->rutaImagen}', '{$this->fechaIngreso}')";
         //print $sql;
         $this->con->consultaSimple($sql);
     }//create
