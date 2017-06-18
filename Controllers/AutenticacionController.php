@@ -17,8 +17,14 @@
                 $verificarUser=$this->login($_POST['usuario'],$_POST['password']);
                 if($verificarUser){
                     if ($verificarUser['id_tipo_usuario'] == 1) {
-                        header('Location: '.URL.'usuarios?admin='.$verificarUser['id_usuario']);
+                        header('Location: '.URL.'usuarios?admin='.$verificarUser['id_usuario'].'&tipo='.$verificarUser['id_tipo_usuario']);
                         AutenticacionController::$idUsuario = $verificarUser['id_usuario'];
+                    }elseif($verificarUser['id_tipo_usuario'] == 2){
+                        header('Location: '.URL.'activos?admin='.$verificarUser['id_usuario'].'&tipo='.$verificarUser['id_tipo_usuario']);
+                        //AutenticacionController::$idUsuario = $verificarUser['id_usuario'];
+                    }elseif($verificarUser['id_tipo_usuario'] == 3){
+                        header('Location: '.URL.'productos?admin='.$verificarUser['id_usuario'].'&tipo='.$verificarUser['id_tipo_usuario']);
+                        //AutenticacionController::$idUsuario = $verificarUser['id_usuario'];
                     }
                     
                 }
