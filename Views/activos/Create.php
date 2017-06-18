@@ -61,19 +61,20 @@ if (isset($_SESSION['admin'])) {
                 <input type="number" id="valorActual" name="valorActual" class="validate" placeholder="Colones">
               <label for="valorActual" data-error="inválido" data-success="válido">Valor actual</label>
             </div>            
-          </div>
-            <div class="row">                
-            <div class="input-field col s6">
-                <label for="imagen">Agregar imagen</label>
-                 </div>
             </div>
-            <div class="row">                
-                <div class="input-field col s6">
-                    <input type="file" name="imagen" id="imagen" >
+
+                <div class="row">                
+                    <div class="input-field col s6">
+                        <label for="imagen">Agregar imagen</label>
+                    </div>
                 </div>
-            </div>
-            <div class='row center'>
-              <button data-target="modalAgregarActivo" name='btn_reg_activo' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar activo</button>
+                <div class="row">                
+                    <div class="input-field col s6">
+                        <input type="file" name="imagen" id="imagen" >
+                    </div>
+                </div>
+                <div class='row center'>
+                    <button data-target="modalAgregarActivo" name='btn_reg_activo' class='col s12 l4 offset-l4 btn waves-effect blue darken-4'>Registrar activo</button>
             </div>
             <input type='text' id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['admin']; ?>" style="visibility:hidden">
         </form>

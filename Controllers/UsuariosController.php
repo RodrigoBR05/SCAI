@@ -60,6 +60,11 @@
             header('Location:'.URL.'usuarios');
         }
         
+        public function excel(){
+          $datos = $this->usuario->toList();
+          return $datos;
+        }//excel
+        
     }
     $usuarios = new UsuariosController();    
 ?>

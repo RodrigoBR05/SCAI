@@ -52,6 +52,11 @@
             header('Location:'.URL.'departamentos');
         }
         
+        public function excel(){
+          $datos = $this->departamento->toList();
+          return $datos;
+        }//excel
+        
     }
     $departamentos = new DepartamentosController();    
 ?>

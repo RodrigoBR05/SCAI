@@ -114,7 +114,7 @@ class ActivosController {
      public function excel(){
           $datos = $this->activo->getActivos();
         return $datos;
-    }//read
+    }//excel
     
     public function getDepartamentos(){
         $datos = $this->departamento->toList();

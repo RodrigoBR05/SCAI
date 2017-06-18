@@ -43,6 +43,10 @@
                 }
             }
         }//index
+        
+    public function creditos() {
+        //debe existir solo para q cargue la vista
+    }
 
     }
 ?>
