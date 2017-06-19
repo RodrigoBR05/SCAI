@@ -50,7 +50,7 @@ class Usuario{
                 VALUES ('{$this->nombre}', '{$this->apellidos}', '{$this->email}', '{$this->telefono}','{$this->puesto}',
                     '{$this->usuario}','{$encriptacionClave}','{$this->tipo_usuario}','{$this->id_tipo_usuario}', '{$fActual}','{$fModificacion}')";
         //print $sql;
-        $this->con->consultaSimple($sql);
+        $this->con->consultaSimple($sql);        
     }
     
     public function delete(){

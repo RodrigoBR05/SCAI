@@ -1,8 +1,18 @@
 <?php
 session_start(); 
-if (isset($_SESSION['admin'])) {
+if (!isset($_SESSION['admin'],$_SESSION['tipo'])) {
+    $_SESSION['tipo'] = $_GET['tipo'];
+    $_SESSION['admin'] = $_GET['admin'];
+}
+if (isset($_SESSION['admin'],$_SESSION['tipo'])) {
     include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/Head.php'; 
-    include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
+    if($_SESSION['tipo']==1){
+        include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminGeneral.php';
+    }elseif($_SESSION['tipo']==2){
+        include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminActivos.php';
+    }elseif($_SESSION['tipo']==3){
+        include $_SERVER['DOCUMENT_ROOT'].'/SCAI/Views/HeaderAdminInventarioComedor.php';
+    }
 ?>
 <header>
     <nav class="top-nav">

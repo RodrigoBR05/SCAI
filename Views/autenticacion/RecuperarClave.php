@@ -33,7 +33,7 @@
 
                     <div class="container center">
                       <div class="z-depth-5 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">                     
-                       <form class="col s12" method="get">
+                       <form class="col s12" method="POST">
                           <div class='row'>
                             <div class='col s12'>
                             </div>
@@ -63,11 +63,11 @@
                               <input class='validate' type='email' name='email' id='email' required/>
                               <label for='password' data-error="inválido" data-success="válido">Ingrese su email</label>
                               <p>
-                                  <input type="checkbox" id="verificacionRobot" name="verificacionRobot" />
+                                <input type="checkbox" id="verificacionRobot" name="verificacionRobot" required/>
                                 <label for="verificacionRobot">No soy un robot</label>
                               </p>
                               <p>
-                                  <input type="checkbox" id="verificacionEmail" name="verificacionEmail" />
+                                <input type="checkbox" id="verificacionEmail" name="verificacionEmail" required/>
                                 <label for="verificacionEmail">Enviar los datos a mi email</label>
                               </p>
                             </div>
