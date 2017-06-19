@@ -115,7 +115,10 @@ class ProductosController {
         header('Location:' . URL . 'productos');
     }//eliminar
     
-    
+    public function excel(){
+          $datos = $this->producto->getProductos();
+        return $datos;
+    }//excel
     
     
     

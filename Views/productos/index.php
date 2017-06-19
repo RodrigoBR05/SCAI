@@ -43,7 +43,8 @@ if (isset($_SESSION['admin'])) {
 
 <main >
     <div class="container center">
-        <div class="input-field  col l3 offset-l1"><a class="waves-effect waves-light btn light-blue darken-1">Generar reporte</a></div>             
+        <div class="input-field  col l3 offset-l1"><a class="waves-effect waves-light btn light-blue darken-1" 
+        href="<?php echo URL; ?>productos/excel">Generar reporte</a></div>
     </div>
     <br>    
     

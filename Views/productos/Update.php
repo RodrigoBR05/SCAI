@@ -44,13 +44,14 @@ if (isset($_SESSION['admin'])) {
               <label for="peso" data-error="inválido" data-success="válido">Peso</label>              
             </div>
             <div class="input-field col s6">                 
-               <select class="browser-default" name="tipoPeso" required>
+               <select class="browser-default" name="tipoPeso" readonly="">
                 <option value="" disabled selected>Seleccione el tipo</option>
-                <option value="UNIDADES">Unidades</option>
-                <option value="KILOGRAMOS">Kilogramos</option>
-                <option value="GRAMOS">Gramos</option>
-                <option value="LITROS">Litros</option>
-                <option value="GALONES">Galones</option>             
+                <option value="UNIDADES" <?php if($datos['tipo_peso'] == "UNIDADES"){?> selected= "selected" <?php }?>>Unidades</option>
+                <option value="KILOGRAMOS"<?php if($datos['tipo_peso'] == "KILOGRAMOS"){?> selected= "selected" <?php }?>>Kilogramos</option>
+                <option value="GRAMOS"<?php if($datos['tipo_peso'] == "GRAMOS"){?> selected= "selected" <?php }?>>Gramos</option>
+                <option value="LITROS"<?php if($datos['tipo_peso'] == "LITROS"){?> selected= "selected" <?php }?>>Litros</option>
+                <option value="GALONES"<?php if($datos['tipo_peso'] == "GALONES"){?> selected= "selected" <?php }?>>Galones</option>
+               
               </select>
             </div>   
           </div>       
