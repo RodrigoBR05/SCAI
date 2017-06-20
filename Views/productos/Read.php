@@ -51,7 +51,12 @@ if (isset($_SESSION['admin'],$_SESSION['tipo'])) {
             <div class="input-field col s6">
                 <input type='text' id="peso" name="peso" class="validate" value="<?php echo $datos['peso']; ?>" readonly="">
               <label for="peso" data-error="inválido" data-success="válido">Peso</label>
-            </div>   
+            </div>
+              
+             <div class="input-field col s6">
+                <input type='text' id="tipoPeso" name="tipoPeso" class="validate" value="<?php echo $datos['tipo_peso']; ?>" readonly="">
+              <label for="tipoPeso" data-error="inválido" data-success="válido">Tipo peso</label>
+            </div> 
               
           </div>       
             <div class="row">
